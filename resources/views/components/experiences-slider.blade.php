@@ -1,0 +1,87 @@
+<div class="experiences-slider">
+  <div class="timeline-container">
+    @foreach($years as $year)
+      <div class="timeline-entry {{ $year["empty"] ? 'empty' : '' }}">
+
+        @if(isset($workExperiences[$year["num"]]))
+          @foreach($workExperiences[$year["num"]] as $exp)
+            <div class="timeline-event">
+              <div class="timeline-event-card card-popover card-popover-x-small"
+                   data-popover-direction="{{ $year['last']  ? 'left' : '' }}">
+                @php
+                  $id = uniqid()
+                @endphp
+
+                <div class="card-body py-0 px-0">
+                  <div class="card-img">
+                    <img src="{{asset('/img/' . $exp['companyLogo'])}}" alt="">
+
+                    <div class="card-offcanvas">
+                      <strong>
+                        @if($exp['companyLink'])
+                          <a href="{{ $exp["companyLink"]}}" target="_blank">
+                            {{ $exp["company"] }}
+                            <x-svg-icon icon="icons/mdi-link"></x-svg-icon>
+                          </a>
+                        @else
+                          {{ $exp["company"] }}
+                        @endif
+                      </strong>
+
+                      <small class="mb-1">
+                        {{ $exp["title"]  }}
+                      </small>
+
+                      <a href="#" class="d-inline-block text-underline"
+                         data-action="dialog" data-action-target="dialog-{{$id}}">
+                        Mostra dettagli
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dialog-container" id="dialog-{{$id}}">
+                  <div class="dialog">
+                    <div class="dialog-title">
+                      <strong>
+                        @if($exp['companyLink'])
+                          <a href="{{ $exp["companyLink"]}}" target="_blank">
+                            {{ $exp["company"] }}
+                            <x-svg-icon icon="icons/mdi-link"></x-svg-icon>
+                          </a>
+                        @else
+                          {{ $exp["company"] }}
+                        @endif
+                      </strong>
+                      <br>
+                      <small>
+                        {{ $exp["title"]  }}
+                      </small>
+                      <br>
+                      <small class="mb-1">
+                        {{ $exp["period"]  }}
+                      </small>
+
+                      <x-svg-icon icon="icons/mdi-close" class="close-icon"></x-svg-icon>
+                    </div>
+
+                    <div class="dialog-body">
+                      <img src="{{asset('/img/' . $exp['companyLogo'])}}" alt="" class="img-flow">
+
+                      {!!  $exp["content"] !!}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @endforeach
+        @endif
+
+        <div class="timeline-year">
+          <div class="timeline-year__dot"></div>
+          <div class="timeline-year__text">{{ $year["num"] }}</div>
+        </div>
+      </div>
+    @endforeach
+  </div>
+</div>

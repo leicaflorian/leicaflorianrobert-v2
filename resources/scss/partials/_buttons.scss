@@ -1,0 +1,42 @@
+@use "../variables";
+@use "bootstrap/scss/vendor/rfs";
+
+.btn {
+  border-radius:   50px;
+  height:          60px;
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  text-transform:  uppercase;
+  padding-left:    1.8rem;
+  padding-right:   1.8rem;
+  font-weight:     500;
+  border:          var(--border-width) solid transparent;
+  transition:      border 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+  font-family:     "Work Sans", sans-serif;
+  @include rfs.rfs(1.1rem, "font-size");
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn-accent {
+  background-color: var(--color-tertiary);
+  border:           5px solid var(--color-light);
+  color:            var(--color-light);
+  
+  &:hover {
+    color:        var(--color-light);
+    border-color: var(--color-tertiary);
+  }
+}
+
+.btn-light {
+  background-color: var(--color-light);
+  color:            var(--color-text-dark);
+  
+  &:hover {
+    border-color: var(--color-tertiary);
+  }
+}
