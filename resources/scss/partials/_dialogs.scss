@@ -57,6 +57,13 @@
   
     .dialog-body {
       padding: 1rem 2rem;
+  
+      // add clearfix to dialog body
+      &::after {
+        content: "";
+        display: table;
+        clear:   both;
+      }
     }
   
     .dialog-footer {

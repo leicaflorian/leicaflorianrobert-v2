@@ -14,7 +14,9 @@
 
                 <div class="card-body py-0 px-0">
                   <div class="card-img">
-                    <img src="{{asset('/img/' . $exp['companyLogo'])}}" alt="">
+                    <img
+                        src="{{ $exp['companyLogo'] ? asset('/storage/' . $exp['companyLogo']) : asset('img/placeholder.png')}}"
+                        alt="{{$exp["company"]}} logo">
 
                     <div class="card-offcanvas">
                       <strong>
@@ -62,7 +64,10 @@
                     </small>
                   </template>
                   <template id="body">
-                    <img src="{{asset('/img/' . $exp['companyLogo'])}}" alt="" class="img-flow">
+                    @isset($exp['companyLogo'])
+                      <img src="{{asset('/storage/' . $exp['companyLogo'])}}" alt="{{$exp["company"]}} logo"
+                           class="img-flow">
+                    @endisset
 
                     {!!  $exp["content"] !!}
                   </template>

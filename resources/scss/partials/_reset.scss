@@ -70,3 +70,38 @@ h4 {
   @include rfs.rfs(32px, "font-size");
   font-weight: 700;
 }
+
+.table-responsive {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+table {
+  width:           100%;
+  border-collapse: collapse;
+  border-spacing:  0;
+  margin:          1rem 0;
+  text-align:      left;
+  overflow:        auto;
+  
+  thead {
+    border-top:    var(--color-text-dark) 1px solid;
+    border-bottom: var(--color-text-dark) 1px solid;
+    
+    th {
+      padding: 0.5rem;
+    }
+  }
+  
+  tbody {
+    td {
+      padding: 0.5rem;
+      //word-break: break-word;
+    }
+  }
+  
+  .img-thumbnail {
+    height: 60px;
+    object-fit: cover;
+  }
+}

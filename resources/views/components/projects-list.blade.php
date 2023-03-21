@@ -4,7 +4,7 @@
     <div class="card-popover card-popover-small">
       <div class="card-body">
         <div class="card-img">
-          <img src="{{asset('/img/jumbo.png')}}" alt="">
+          <img src="{{ $project->image ? asset('/storage/' . $project->image) : asset('img/placeholder.png')}}" alt="">
 
           <div class="card-offcanvas">
             <p class="mb-1">
@@ -45,7 +45,7 @@
           <div>
             @if($project->image)
               <img
-                  src="{{ str_starts_with($project->image, "http") ? $project->image :  asset('/img/' . $project->image)}}"
+                  src="{{ str_starts_with($project->image, "http") ? $project->image :  asset('/storage/' . $project->image)}}"
                   alt="" class="img-flow">
             @endif
 

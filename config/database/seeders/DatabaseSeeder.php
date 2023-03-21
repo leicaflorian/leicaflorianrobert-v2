@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace config\database\seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder {
   public function run(): void {
     $this->call([
       ProjectsSeeder::class,
+      ExperiencesTableSeeder::class,
     ]);
     
     // \App\Models\User::factory(10)->create();

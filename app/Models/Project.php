@@ -14,8 +14,18 @@ use Illuminate\Database\Query\Builder;
  * @property string $image
  * @property string $link
  * @property string $github
+ * @property string $date
  *
  */
 class Project extends Model {
   use HasFactory;
+  
+  protected $fillable = [
+    'title',
+    'description',
+    'image',
+    'link',
+    'github',
+    'date',
+  ];
 }

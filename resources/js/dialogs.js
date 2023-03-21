@@ -25,6 +25,42 @@ function removeDialog (dialog) {
 
 function addNewDialog (dialog) {
   const templates = dialog.querySelectorAll('template')
+  
+  // Case when the dialog is already written in the HTML
+  if (!templates.length) {
+    dialog.style.display = 'block'
+    
+    setTimeout(function () {
+      dialog.classList.add('opened')
+    })
+    
+    if (!dialog.eventsBinded) {
+      dialog.eventsBinded = true
+      
+      dialog.addEventListener('transitionend', function () {
+        if (!dialog.classList.contains('opened')) {
+          dialog.style.display = 'none'
+        }
+      })
+      
+      dialog.addEventListener('click', function (event) {
+        if (event.target.classList.contains('dialog-container')) {
+          dialog.classList.remove('opened')
+        }
+      })
+      
+      dialog.querySelector('.close-icon')?.addEventListener('click', function () {
+        dialog.classList.remove('opened')
+      })
+  
+      dialog.querySelector('.close-btn')?.addEventListener('click', function () {
+        dialog.classList.remove('opened')
+      })
+    }
+    
+    return
+  }
+  
   const newNode = createDialog(templates)
   
   newNode.addEventListener('click', function (event) {
@@ -34,6 +70,10 @@ function addNewDialog (dialog) {
   })
   
   newNode.querySelector('.close-icon')?.addEventListener('click', function () {
+    removeDialog(newNode)
+  })
+  
+  newNode.querySelector('.close-btn')?.addEventListener('click', function () {
     removeDialog(newNode)
   })
   

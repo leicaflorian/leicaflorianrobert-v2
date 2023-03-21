@@ -4,6 +4,10 @@
   display: block !important;
 }
 
+.d-none{
+    display: none !important;
+}
+
 // FLEXBOX
 
 .d-flex {
@@ -70,6 +74,10 @@
 
 .text-underline {
   text-decoration: underline !important;
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
 }
 
 .small, small {
@@ -161,6 +169,14 @@
 
 .color-primary {
   color: var(--color-primary) !important;
+}
+
+.color-danger {
+  color: var(--color-danger) !important;
+}
+
+.color-info {
+  color: var(--color-info) !important;
 }
 
 .unstyled-list {

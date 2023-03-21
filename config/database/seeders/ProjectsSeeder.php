@@ -1,9 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace config\database\seeders;
 
 use App\Models\Project;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ProjectsSeeder extends Seeder {
