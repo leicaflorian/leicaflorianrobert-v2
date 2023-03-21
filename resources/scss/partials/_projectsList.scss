@@ -1,0 +1,15 @@
+.projects-list {
+  display:         flex;
+  flex-wrap:       wrap;
+  justify-content: center;
+  text-align:      center;
+  row-gap:         2rem;
+  
+  > * {
+    flex-grow: 1;
+  }
+  
+  .card-offcanvas{
+    color: var(--color-text-dark);
+  }
+}

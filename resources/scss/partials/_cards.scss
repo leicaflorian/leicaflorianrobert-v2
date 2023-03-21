@@ -80,6 +80,11 @@
     overflow:                   auto;
     opacity:                    0;
     transition:                 opacity .3s ease, transform .3s ease;
+    text-align:                 left;
+  
+    a {
+      text-align: inherit;
+    }
   }
   
   &[data-popover-direction="left"] {
@@ -118,6 +123,7 @@
       border-radius: 3rem;
       text-align:    center;
       padding:       1rem 1rem 2rem 1rem;
+      align-items:   center;
     }
   }
   

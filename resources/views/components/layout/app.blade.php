@@ -17,5 +17,9 @@
   </main>
 
   <x-the-footer></x-the-footer>
+
+  <template id="icons">
+    <x-svg-icon icon="icons/mdi-close"></x-svg-icon>
+  </template>
 </body>
 </html>

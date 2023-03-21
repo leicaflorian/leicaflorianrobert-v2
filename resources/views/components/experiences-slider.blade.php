@@ -1,5 +1,5 @@
 <div class="experiences-slider">
-  <div class="timeline-container">
+  <div class="timeline-container" data-popover-parent>
     @foreach($years as $year)
       <div class="timeline-entry {{ $year["empty"] ? 'empty' : '' }}">
 
@@ -40,37 +40,32 @@
                   </div>
                 </div>
 
-                <div class="dialog-container" id="dialog-{{$id}}">
-                  <div class="dialog">
-                    <div class="dialog-title">
-                      <strong>
-                        @if($exp['companyLink'])
-                          <a href="{{ $exp["companyLink"]}}" target="_blank">
-                            {{ $exp["company"] }}
-                            <x-svg-icon icon="icons/mdi-link"></x-svg-icon>
-                          </a>
-                        @else
+                <div id="dialog-{{$id}}">
+                  <template id="title">
+                    <strong>
+                      @if($exp['companyLink'])
+                        <a href="{{ $exp["companyLink"]}}" target="_blank">
                           {{ $exp["company"] }}
-                        @endif
-                      </strong>
-                      <br>
-                      <small>
-                        {{ $exp["title"]  }}
-                      </small>
-                      <br>
-                      <small class="mb-1">
-                        {{ $exp["period"]  }}
-                      </small>
+                          <x-svg-icon icon="icons/mdi-link"></x-svg-icon>
+                        </a>
+                      @else
+                        {{ $exp["company"] }}
+                      @endif
+                    </strong>
+                    <br>
+                    <small>
+                      {{ $exp["title"]  }}
+                    </small>
+                    <br>
+                    <small class="mb-1">
+                      {{ $exp["period"]  }}
+                    </small>
+                  </template>
+                  <template id="body">
+                    <img src="{{asset('/img/' . $exp['companyLogo'])}}" alt="" class="img-flow">
 
-                      <x-svg-icon icon="icons/mdi-close" class="close-icon"></x-svg-icon>
-                    </div>
-
-                    <div class="dialog-body">
-                      <img src="{{asset('/img/' . $exp['companyLogo'])}}" alt="" class="img-flow">
-
-                      {!!  $exp["content"] !!}
-                    </div>
-                  </div>
+                    {!!  $exp["content"] !!}
+                  </template>
                 </div>
               </div>
             </div>

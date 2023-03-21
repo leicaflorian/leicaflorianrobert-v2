@@ -10,8 +10,6 @@ window.addEventListener('load', function () {
     return
   }
   
-  console.log(timelineContainer)
-  
   const events = document.querySelectorAll('.timeline-event')
   
   events.forEach(function (event) {
@@ -35,12 +33,6 @@ window.addEventListener('load', function () {
           left: timelineContainer.scrollLeft - elPosition.right,
           behavior: 'smooth'
         })
-      }
-      
-      if (elPosition.right < 300) {
-        eventCard.dataset.popoverDirection = 'left'
-      } else if (elPosition.left < 300) {
-        eventCard.dataset.popoverDirection = ''
       }
     })
   })

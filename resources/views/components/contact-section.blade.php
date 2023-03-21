@@ -1,4 +1,4 @@
-<section class="">
+<section {{ $attributes->merge([]) }}>
   <div class="container container-small text-center">
     <h3 class="section-title">
       <span class="subtitle">{{$subtitle}}</span>

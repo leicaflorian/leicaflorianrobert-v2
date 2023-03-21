@@ -22,7 +22,7 @@
   <section class="section-secondary pt-0 pb-0 mt-5">
     <div class="container">
       <div class="panel panel-light offset-top-5 py-5">
-        <div class="d-flex fill-childs">
+        <div class="d-flex fill-childs" data-popover-parent>
           <div class="card-popover card-popover-small">
             <div class="card-body ">
               <div class="card-img">
@@ -40,7 +40,7 @@
 
             </div>
           </div>
-          <div class="card-popover card-popover-small" data-popover-direction="bottom">
+          <div class="card-popover card-popover-small">
             <div class="card-body">
               <div class="card-img">
                 <img src="{{asset('/img/jumbo.png')}}" alt="">
@@ -55,7 +55,7 @@
               </div>
             </div>
           </div>
-          <div class="card-popover card-popover-small " data-popover-direction="left">
+          <div class="card-popover card-popover-small">
             <div class="card-body">
               <div class="card-img">
                 <img src="{{asset('/img/jumbo.png')}}" alt="">

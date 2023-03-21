@@ -48,17 +48,24 @@
         right:       1rem;
         cursor:      pointer;
         transition:  color .3s ease;
-        
+  
         &:hover {
           color: var(--color-tertiary);
         }
       }
     }
-    
+  
     .dialog-body {
       padding: 1rem 2rem;
     }
-  }
   
+    .dialog-footer {
+      padding:         1rem 2rem;
+      display:         flex;
+      justify-content: flex-end;
+      align-items:     center;
+      gap:             1rem;
+    }
+  }
   
 }

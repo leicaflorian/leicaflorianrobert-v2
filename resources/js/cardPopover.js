@@ -15,15 +15,17 @@ window.addEventListener('DOMContentLoaded', function () {
       if (timerIn) {
         clearTimeout(timerIn)
       }
-      
+  
+      calcPopoverPosition(cardPopover)
+  
       timerIn = setTimeout(function () {
         offcanvas.style.display = 'flex'
         cardPopover.style.zIndex = (active ? +active.style.zIndex + 1 : 60).toString()
-        
+    
         setTimeout(function () {
           cardPopover.classList.add('opened')
         }, 50)
-        
+    
         active = cardPopover
       }, 150)
     })
@@ -46,13 +48,34 @@ window.addEventListener('DOMContentLoaded', function () {
         active = null
       }
     })
-    
+  
     if (expandCardBtn) {
       expandCardBtn.addEventListener('click', function (event) {
         event.preventDefault()
-        
+      
         cardPopover.expanded = true
       })
     }
   })
 })
+
+function calcPopoverPosition (cardPopover) {
+  const parent = cardPopover.closest('[data-popover-parent]')
+  
+  if (!parent) return
+  
+  const containerRect = parent.getBoundingClientRect()
+  const elRect = cardPopover.getBoundingClientRect()
+  const elPosition = {
+    left: elRect.left - containerRect.left,
+    right: containerRect.width - elRect.right + containerRect.left
+  }
+  
+  if (elPosition.right < 300 && elPosition.left < 300) {
+    cardPopover.dataset.popoverDirection = 'bottom'
+  } else if (elPosition.right < 300) {
+    cardPopover.dataset.popoverDirection = 'left'
+  } else if (elPosition.left < 300) {
+    cardPopover.dataset.popoverDirection = ''
+  }
+}
