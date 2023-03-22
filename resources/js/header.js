@@ -25,12 +25,18 @@ let pageTitleEnd = 100
 let pageTitleScaleStart = 1
 let pageTitleScaleEnd = 0.7
 
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('pageChanging', function () {
+  console.log('pageChanged')
+  
   header = document.querySelector('header')
   mainLogo = document.querySelector('.logo-container')
   niLogoPlaceholder = document.querySelector('.navbar-item-logo-placeholder')
   bgImg = header.querySelector('.bg-img')
   pageTitle = header.querySelector('.page-title')
+  
+  if (!header) {
+    return
+  }
   
   startLogoOffset = parseInt(getComputedStyle(header).getPropertyValue('--logo-offset'))
   endNiLogoPlaceholder = niLogoPlaceholder.offsetWidth
@@ -47,7 +53,11 @@ window.addEventListener('resize', function (e) {
 })
 
 function updateLogoSize () {
-  const navbarSize = parseInt(getComputedStyle(header).getPropertyValue('--navbar-height'))
+  if (!header) {
+    return
+  }
+  
+  const navbarSize = parseInt(window.getComputedStyle(header).getPropertyValue('--navbar-height'))
   const vh = header.offsetHeight - navbarSize
   
   const vhPercent = (window.scrollY / vh) * 100

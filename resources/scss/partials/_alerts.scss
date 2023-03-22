@@ -22,3 +22,11 @@
     color: var(--color-danger);
   }
 }
+
+.alert-success {
+  border-left: var(--border-width) solid var(--color-success);
+  
+  .icon {
+    color: var(--color-success);
+  }
+}

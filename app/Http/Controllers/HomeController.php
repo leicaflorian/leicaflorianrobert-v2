@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\FragmentQuery;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller {
-  function index() {
-    return view('home');
+  use FragmentQuery;
+  
+  function index(Request $request) {
+    return $this->view($request, "home");
   }
   
-  public function about() {
+  public function about(Request $request) {
     $technologies = [
       "HTML5",
       "CSS3 / SASS",
@@ -28,6 +31,6 @@ class HomeController extends Controller {
       "Docker",
     ];
     
-    return view('about', compact('technologies'));
+    return $this->view($request, 'about', compact('technologies'));
   }
 }

@@ -1,27 +1,27 @@
-<section {{ $attributes->merge([]) }}>
+<section {{ $attributes->merge([]) }} >
   <div class="container container-small text-center">
-    <h3 class="section-title">
+    <h3 class="section-title" id="contacts">
       <span class="subtitle">{{$subtitle}}</span>
       <span class="title">{{$title}}</span>
     </h3>
 
     {!! $text !!}
 
-    <form action="">
+    <form action="{{route('contacts.store')}}" method="POST" id="contact-form">
       <fieldset class="form-group-row">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Nome e Cognome">
-          <label for="">Nome e Cognome</label>
+          <input type="text" class="form-control" placeholder="Nome e Cognome" name="name" required>
+          <label>Nome e Cognome</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Email">
-          <label for="">Email</label>
+          <input type="email" class="form-control" placeholder="Email" name="email" required>
+          <label>Email</label>
         </div>
       </fieldset>
 
       <div class="form-group mb-5">
-        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Messaggio"></textarea>
-        <label for="">Messaggio</label>
+        <textarea name="message" cols="30" rows="5" class="form-control" placeholder="Messaggio" required></textarea>
+        <label>Messaggio</label>
       </div>
 
       <div class="flex-center gap-1">

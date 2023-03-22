@@ -18,7 +18,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name("ho
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name("about");
 Route::get('/projects', [App\Http\Controllers\ProjectController::class, 'index'])->name("projects");
 
-
 Route::middleware('auth')
   ->prefix('admin')
   ->name('admin.')
@@ -29,6 +28,7 @@ Route::middleware('auth')
     
     Route::resource("projects", App\Http\Controllers\Admin\ProjectController::class)->except(['show']);
     Route::resource("experiences", App\Http\Controllers\Admin\ExperienceController::class)->except(['show']);
+    Route::resource("contacts", App\Http\Controllers\Admin\ContactController::class)->only(['index', 'show']);
 //    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

@@ -13,7 +13,7 @@
       <ul class="list">
         <li><a href="{{ route('admin.projects.index') }}">Progetti</a></li>
         <li><a href="{{ route('admin.experiences.index') }}">Esperienze</a></li>
-        <li><a href="{{ route('admin.projects.index') }}">Contatti</a></li>
+        <li><a href="{{ route('admin.contacts.index') }}">Contatti</a></li>
       </ul>
     </div>
   </section>

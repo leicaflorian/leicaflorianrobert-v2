@@ -19,7 +19,7 @@
     </div>
   </section>
 
-  <section class="section-secondary pt-0 pb-0 mt-5">
+  <section class="section-secondary section-fluid pt-0 pb-0 mt-5">
     <div class="container">
       <div class="panel panel-light offset-top-5 py-5">
         <div class="d-flex fill-childs" data-popover-parent>

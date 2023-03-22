@@ -9,11 +9,11 @@
 
   <div class="navbar">
     <div class="container">
-      <a href="{{ route('home') }}" class="navbar-item">Home</a>
-      <a href="{{ route('about') }}" class="navbar-item">Su di me</a>
-      <a href="{{ route('home') }}" class="navbar-item navbar-item-logo-placeholder"></a>
-      <a href="{{ route('projects') }}" class="navbar-item">Progetti</a>
-      <a href="{{ route('home') }}" class="navbar-item">Contatti</a>
+      <a href="{{ route('home') }}" class="navbar-item route-link">Home</a>
+      <a href="{{ route('about') }}" class="navbar-item route-link" data-page-title="Su di me">Su di me</a>
+      <a href="" class="navbar-item route-link navbar-item-logo-placeholder"></a>
+      <a href="{{ route('projects') }}" class="navbar-item route-link" data-page-title="Progetti">Progetti</a>
+      <a href="#contacts" class="navbar-item route-link">Contatti</a>
     </div>
   </div>
 

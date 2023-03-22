@@ -3,6 +3,7 @@ footer {
   padding-top:      5rem;
   padding-bottom:   5rem;
   color:            var(--color-text-light);
+  min-height:       40vh;
   
   .container {
     text-align: center;
@@ -11,7 +12,7 @@ footer {
   .social-links {
     display:     flex;
     align-items: center;
-    gap: 1rem;
+    gap:         1rem;
 
     a {
       display: inline-flex;

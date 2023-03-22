@@ -8,12 +8,14 @@ use Illuminate\View\Component;
 
 class SvgIcon extends Component {
   public string $name;
+  public bool $raw;
   
   /**
    * Create a new component instance.
    */
-  public function __construct($icon) {
+  public function __construct($icon, $raw = false) {
     $this->name = $icon;
+    $this->raw  = $raw;
   }
   
   /**

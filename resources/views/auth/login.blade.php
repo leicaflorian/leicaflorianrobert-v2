@@ -2,8 +2,6 @@
   <x-slot name="pageTitle">Admin</x-slot>
 
   <section class="section-small">
-    <x-auth.auth-session-status class="mb-4" :status="session('status')"/>
-
     <div class="container container-x-small">
       <x-validation-alert :errors="$errors" icon="icons/mdi-alert"></x-validation-alert>
 
