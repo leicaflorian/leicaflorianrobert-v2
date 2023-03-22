@@ -30,11 +30,14 @@ export class PageLoader extends EventTarget {
     
     return new Promise(resolve => {
       setTimeout(async () => {
-        document.body.classList.add('loading')
+        // reset animation to default
+        this.loader.classList.replace("animate-out", 'animate-in')
         
+        document.body.classList.add('loading')
+  
         await this.shown.promise
         this.onShowComplete()
-        
+  
         resolve()
       })
     })
@@ -51,11 +54,15 @@ export class PageLoader extends EventTarget {
     this.hidden = new Deferred()
     
     return new Promise(async resolve => {
-      document.body.classList.remove('loading')
-      
+      this.loader.classList.replace("animate-in", 'animate-out')
+  
+      setTimeout(() => {
+        document.body.classList.remove('loading')
+      }, 300)
+  
       await this.hidden.promise
       this.onHideComplete()
-      
+  
       resolve()
     })
     
@@ -75,9 +82,9 @@ export class PageLoader extends EventTarget {
       // console.log('transitionend', this.currentEvent)
       
       if (this.currentEvent === 'show') {
-        this.shown.resolve()
+        this.shown?.resolve()
       } else if (this.currentEvent === 'hide') {
-        this.hidden.resolve()
+        this.hidden?.resolve()
       } else {
         if (document.body.classList.contains('loading')) {
           // this.onShowComplete()

@@ -18,10 +18,12 @@ export class PageChanger {
     window.addEventListener('popstate', async (e) => {
       const newLocation = e.target.location.href
       
+      await this.navigateToPage(newLocation)
     })
     
     window.addEventListener('load', () => {
       this.dispatchEvent(PageChanger.PAGE_CHANGING)
+      
       setTimeout(async () => {
         await this.dispatchPageChanged(true)
       }, this.initialLoaderDelay)
