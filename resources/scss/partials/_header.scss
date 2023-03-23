@@ -122,6 +122,7 @@ header {
   
       &.active {
         color: var(--color-secondary);
+        text-decoration: underline;
       }
   
       @include media-breakpoint-down(md) {
@@ -185,6 +186,11 @@ header {
           color:      var(--color-dark);
           padding:    1rem 0;
           text-align: center;
+  
+          &.active {
+            color: var(--color-secondary);
+            text-decoration: underline;
+          }
         }
       }
       
