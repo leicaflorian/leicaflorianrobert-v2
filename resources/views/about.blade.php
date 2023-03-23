@@ -37,9 +37,9 @@
         </p>
       </div>
 
-      <div class="flex-center lead gap-1 color-light">
+      <div class="flex-center lead gap-md-1 color-light">
         <span>Anni di esperienza</span>
-        <div class="vr"></div>
+        <div class="vr "></div>
         <span class="fs-large ff-titles">{{ (now()->year) - 2009 }}</span>
       </div>
     </div>
@@ -58,14 +58,14 @@
       <div class="mb-4"></div>
 
       <div class="container px-0">
-        <div class="d-flex justify-center gap-1">
-          <h4 class="text-uppercase text-right color-primary">Tecnologie e<br>linguaggi</h4>
+        <div class="d-flex justify-center align-center align-md-stretch gap-1 flex-column flex-md-row">
+          <h4 class="text-uppercase text-center color-primary text-md-right">Tecnologie e<br>linguaggi</h4>
 
           <div>
             <div class="vr vr-fluid"></div>
           </div>
 
-          <ul class="unstyled-list multi-column-text multi-column-gap-1 color-dark">
+          <ul class="unstyled-list multi-column-text multi-column-gap-1 color-dark no-rule">
             @foreach($technologies as $tech)
               <li>{{ $tech }}</li>
             @endforeach

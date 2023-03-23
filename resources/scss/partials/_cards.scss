@@ -8,19 +8,22 @@
   
   &.card-popover-small {
     .card-body {
+      min-width: 180px;
       max-width: 220px;
     }
   }
   
   &.card-popover-x-small {
     .card-body {
+      min-width: 80px;
       max-width: 120px;
     }
   }
   
   .card-body {
-    padding:  1rem;
-    position: relative;
+    padding:   1rem;
+    position:  relative;
+    min-width: 250px;
   }
   
   .card-img {

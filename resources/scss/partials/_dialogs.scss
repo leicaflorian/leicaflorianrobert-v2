@@ -1,3 +1,6 @@
+@import "../variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
 .dialog-container {
   // backdrop
   position:         fixed;
@@ -72,6 +75,11 @@
       justify-content: flex-end;
       align-items:     center;
       gap:             1rem;
+    }
+  
+    @include media-breakpoint-down(md) {
+      width:     calc(100% - 2rem);
+      max-width: unset;
     }
   }
   

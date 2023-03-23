@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactReceivedAdmin;
+use App\Mail\ContactSentUser;
 use App\Models\Contact;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactsController extends Controller {
   public function store(Request $request) {
@@ -13,7 +17,6 @@ class ContactsController extends Controller {
       'message' => 'required'
     ]);
     
-    throw new \Exception('Something went wrong');
     Contact::create($data);
     
     return response()->json([

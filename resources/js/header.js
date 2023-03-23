@@ -4,7 +4,9 @@ let niLogoPlaceholder
 let bgImg
 let pageTitle
 
-const startSize = 120
+let navbarSize
+
+let startSize = 120
 const endSize = 60
 
 const startBlur = 10
@@ -20,7 +22,7 @@ let startImgScale = 1
 let endImgScale = 1.5
 
 let pageTitleStart = 0
-let pageTitleEnd = 100
+let pageTitleEnd = 60
 
 let pageTitleScaleStart = 1
 let pageTitleScaleEnd = 0.7
@@ -38,6 +40,8 @@ window.addEventListener('pageChanging', function () {
     return
   }
   
+  navbarSize = parseInt(window.getComputedStyle(header).getPropertyValue('--navbar-height'))
+  startSize = parseInt(getComputedStyle(mainLogo).width)
   startLogoOffset = parseInt(getComputedStyle(header).getPropertyValue('--logo-offset'))
   endNiLogoPlaceholder = niLogoPlaceholder.offsetWidth
   
@@ -57,11 +61,19 @@ function updateLogoSize () {
     return
   }
   
+  if (window.Responsive.mediaBreakpointDown('md')) {
+    endLogoOffset = .8
+  } else {
+    endLogoOffset = 0
+  }
+  
   const navbarSize = parseInt(window.getComputedStyle(header).getPropertyValue('--navbar-height'))
   const vh = header.offsetHeight - navbarSize
   
   const vhPercent = (window.scrollY / vh) * 100
   const blurPercent = (window.scrollY / vh) * 100
+  
+  window.headerScrollPercent = vhPercent
   
   const newSize = startSize - (vhPercent * (startSize - endSize) / 100)
   const newBlur = Math.round(startBlur - (blurPercent * (startBlur - endBlur) / 100))
@@ -71,19 +83,21 @@ function updateLogoSize () {
   const newPageTitleScale = pageTitleScaleStart - (vhPercent * (pageTitleScaleStart - pageTitleScaleEnd) / 100)
   
   if (vhPercent < 100) {
+    header.style.setProperty('--header-percentage', `${vhPercent}`)
     header.style.setProperty('--logo-size', `${newSize}px`)
     header.style.setProperty('--logo-bg-blur', `${newBlur}px`)
-    header.style.setProperty('--logo-offset', `${newLogoOffset}rem`)
+    header.style.setProperty('--logo-offset', `${newLogoOffset}vh`)
     header.style.setProperty('--img-scale', `${newImgScale}`)
     header.style.setProperty('--page-title-translate-y', `${vhPercent}%`)
     header.style.setProperty('--page-title-scale', `${newPageTitleScale}`)
     niLogoPlaceholder.style.maxWidth = `${newNiLogoPlaceholder}px`
   } else {
+    header.style.setProperty('--header-percentage', `100`)
     header.style.setProperty('--logo-size', `${endSize}px`)
     header.style.setProperty('--logo-bg-blur', `${endBlur}px`)
-    header.style.setProperty('--logo-offset', `${endLogoOffset}rem`)
+    header.style.setProperty('--logo-offset', `${endLogoOffset}vh`)
     header.style.setProperty('--img-scale', `${endImgScale}`)
-    header.style.setProperty('--page-title-translate-y', `${pageTitleEnd}%`)
+    header.style.setProperty('--page-title-translate-y', `100%`)
     header.style.setProperty('--page-title-scale', `${pageTitleScaleEnd}`)
     niLogoPlaceholder.style.maxWidth = `${endNiLogoPlaceholder}px`
   }

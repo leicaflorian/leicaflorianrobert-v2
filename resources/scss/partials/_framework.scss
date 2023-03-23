@@ -1,4 +1,6 @@
 @use "bootstrap/scss/vendor/rfs";
+@import "../variables";
+@import "bootstrap/scss/mixins/breakpoints";
 
 .container {
   width:         100%;
@@ -74,6 +76,16 @@
   transition:    color .3s ease, opacity .3s ease;
   
   &.not-stick {
+    position: relative;
+    top:      0;
+    z-index:  1;
+  }
+  
+  @include media-breakpoint-down(lg) {
+    top: 55px;
+  }
+  
+  @include media-breakpoint-down(md) {
     position: relative;
     top:      0;
     z-index:  1;

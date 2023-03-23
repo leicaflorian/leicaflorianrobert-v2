@@ -13,7 +13,7 @@
 
       <div class="flex-center gap-1">
         <a href="#" class="btn btn-accent">Contattami</a>
-        <div class="vr vr-large"></div>
+        <div class="vr vr-large d-none d-md-block"></div>
         <a href="#" class="btn btn-light">Leggi altro...</a>
       </div>
     </div>

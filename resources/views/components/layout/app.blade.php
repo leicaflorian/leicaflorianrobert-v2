@@ -145,6 +145,11 @@
         opacity: 0;
         color: white;
       }
+      50% {
+        filter: blur(5px);
+        opacity: 0.5;
+        color: white;
+      }
       100% {
         filter: blur(0);
         opacity: 1;

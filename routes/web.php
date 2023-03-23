@@ -25,7 +25,7 @@ Route::middleware('auth')
     Route::get('/', function () {
       return view('admin.dashboard');
     })->name('dashboard');
-    
+  
     Route::resource("projects", App\Http\Controllers\Admin\ProjectController::class)->except(['show']);
     Route::resource("experiences", App\Http\Controllers\Admin\ExperienceController::class)->except(['show']);
     Route::resource("contacts", App\Http\Controllers\Admin\ContactController::class)->only(['index', 'show']);
@@ -33,5 +33,13 @@ Route::middleware('auth')
 //    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
   });
+
+/*Route::get('/mailable', function () {
+  $contact   = App\Models\Contact::first();
+  $adminUser = App\Models\User::first();
+  
+//  return new App\Mail\ContactSentUser($contact);
+  return new App\Mail\ContactReceivedAdmin($contact, $adminUser);
+});*/
 
 require __DIR__ . '/auth.php';

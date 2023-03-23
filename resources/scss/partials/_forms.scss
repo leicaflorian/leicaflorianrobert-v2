@@ -1,3 +1,6 @@
+@import "../variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
 .form-group {
   --padding-x:         1rem;
   --padding-y:         1rem;
@@ -37,6 +40,12 @@
   .img-thumbnail {
     height:     60px;
     object-fit: cover;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    gap:            0;
+    
   }
 }
 

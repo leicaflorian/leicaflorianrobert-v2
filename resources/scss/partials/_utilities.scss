@@ -1,11 +1,19 @@
 @use "bootstrap/scss/vendor/rfs";
+@import "../variables";
+@import "bootstrap/scss/mixins/breakpoints";
 
 .d-block {
   display: block !important;
 }
 
-.d-none{
-    display: none !important;
+.d-none {
+  display: none !important;
+}
+
+@include media-breakpoint-up(md) {
+  .d-md-block {
+    display: block !important;
+  }
 }
 
 // FLEXBOX
@@ -45,6 +53,8 @@
 }
 
 .fill-childs {
+  flex-wrap: wrap;
+  
   & > * {
     flex-grow:  1;
     flex-basis: 0;
@@ -52,9 +62,37 @@
   }
 }
 
+@include media-breakpoint-up(md) {
+  .flex-md-column {
+    flex-direction: column !important;
+  }
+  
+  .flex-md-row {
+    flex-direction: row !important;
+  }
+  
+  .align-md-center {
+    align-items: center !important;
+  }
+  
+  .align-md-start {
+    align-items: flex-start !important;
+  }
+  
+  .align-md-stretch {
+    align-items: stretch !important;
+  }
+}
+
 @for $i from 1 through 5 {
   .gap-#{$i} {
     gap: #{$i}rem !important;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .gap-md-1 {
+    gap: 1rem !important;
   }
 }
 
@@ -66,6 +104,18 @@
 
 .text-right {
   text-align: right !important;
+}
+
+@include media-breakpoint-up(md) {
+  .text-md-center {
+    text-align: center !important;
+  }
+  .text-md-right {
+    text-align: right !important;
+  }
+  .text-md-left {
+    text-align: left !important;
+  }
 }
 
 .text-uppercase {
@@ -104,12 +154,30 @@
 
 .multi-column-text {
   column-count: 2;
-  column-gap:   4rem;
-  //column-rule:  1px solid #ddd;
+  column-gap:   3rem;
+  column-rule:  1px solid #ddd;
   text-align:   justify;
   
   p {
     margin-bottom: 1rem;
+  }
+  
+  &.no-rule {
+    column-rule: none;
+  }
+  
+  @include media-breakpoint-down(lg) {
+    column-gap:  2rem;
+    column-rule: none;
+  }
+  
+  @include media-breakpoint-down(md) {
+    column-gap: 1rem;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    column-count: 1;
+    text-align:   left;
   }
 }
 

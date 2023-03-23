@@ -1,9 +1,14 @@
+@use "bootstrap/scss/vendor/rfs";
+@import "../variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
 header {
+  --header-percentage:      0;
   --header-height:          100vh;
   --navbar-height:          60px;
   --logo-size:              120px;
   --logo-bg-blur:           10px;
-  --logo-offset:            2rem;
+  --logo-offset:            2vh;
   --img-scale:              1;
   --page-title-translate-y: 0;
   --page-title-scale:       1;
@@ -17,6 +22,18 @@ header {
   
   &.condensed {
     --header-height: 50vh;
+    --logo-size:     100px;
+    
+    @media screen and (max-height: 768px) {
+      --header-height: 80vh;
+    }
+  }
+  
+  @include media-breakpoint-down(md) {
+    --navbar-height: 1px;
+    
+    .navbar {
+    }
   }
   
   .jumbo {
@@ -43,7 +60,7 @@ header {
       width:     var(--logo-size);
       height:    var(--logo-size);
       z-index:   1031;
-      
+  
       &:before {
         content:          "";
         display:          block;
@@ -77,9 +94,17 @@ header {
     flex-shrink:      0;
     display:          flex;
     justify-content:  center;
-    
+  
     .container {
       display: flex;
+    
+      > * {
+        flex: 1;
+      
+        &.navbar-item-logo-placeholder {
+          flex-grow: .5;
+        }
+      }
     }
     
     .navbar-item {
@@ -90,26 +115,126 @@ header {
       justify-content: center;
       text-decoration: none;
       color:           var(--color-dark);
-      
+  
       &:hover {
         color: var(--color-tertiary);
+      }
+  
+      &.active {
+        color: var(--color-secondary);
+      }
+  
+      @include media-breakpoint-down(md) {
+        display: none;
       }
     }
   }
   
   .page-title {
-    position:       absolute;
-    bottom:         40px;
-    left:           50%;
-    transform:      translateY(var(--page-title-translate-y)) translateX(-50%) scale(var(--page-title-scale));
-    padding:        3rem 5rem 1.5rem 5rem;
-    text-transform: uppercase;
-    white-space:    nowrap;
-    
+    --trans-y:        calc(var(--page-title-translate-y) + (var(--navbar-height) * var(--header-percentage) / 100));
+  
+    position:         absolute;
+    bottom:           calc(var(--navbar-height) + (4px * var(--header-percentage) / 100));
+    left:             50%;
+    transform:        translateY(var(--trans-y)) translateX(-50%) scale(var(--page-title-scale));
+    padding:          2rem 5rem;
+    text-transform:   uppercase;
+    white-space:      nowrap;
+    transform-origin: top;
+    transition:       width .3s ease;
+    text-align: center;
+  
     & > * {
       transition: opacity .3s ease;
+      display: inline-block;
+    }
+  
+    @include media-breakpoint-down(lg) {
+      padding: 1rem 2rem;
+    }
+  
+  }
+  
+  #mobile-menu {
+    position: fixed;
+    bottom:   2rem;
+    right:    2rem;
+    z-index:  1040;
+    
+    @include media-breakpoint-up(md) {
+      display: none;
     }
     
-    //transform: calc(var(--page-title-translate-y));
+    .mobile-menu-canvas {
+      position:         fixed;
+      bottom:           0;
+      left:             0;
+      right:            0;
+      background-color: var(--color-light);
+      padding:          4rem 0 2rem 0;
+      opacity:          0;
+      transform:        translateY(100%);
+      transition:       opacity .3s ease, transform .3s ease;
+      
+      .unstyled-list {
+        display:        flex;
+        flex-direction: column;
+        
+        .navbar-item {
+          flex:       1;
+          color:      var(--color-dark);
+          padding:    1rem 0;
+          text-align: center;
+        }
+      }
+      
+      .close-icon {
+        position:   absolute;
+        top:        1rem;
+        right:      1rem;
+        cursor:     pointer;
+        transition: color .3s ease;
+        color:      var(--color-dark);
+        
+        &:hover {
+          color: var(--color-tertiary);
+        }
+        
+        .icon {
+          --icon-size: 2rem;
+        }
+      }
+    }
+    
+    .mobile-menu-backdrop {
+      position:         fixed;
+      top:              0;
+      left:             0;
+      right:            0;
+      bottom:           0;
+      opacity:          0;
+      pointer-events:   none;
+      transition:       opacity .3s ease;
+      background-color: rgba(0, 0, 0, 0.5);
+      display:          none;
+      
+      &.show {
+        opacity:        1;
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
+body.mobile-menu-open {
+  overflow: hidden;
+  
+  header {
+    #mobile-menu {
+      .mobile-menu-canvas {
+        opacity:   1;
+        transform: translateY(0);
+      }
+    }
   }
 }
