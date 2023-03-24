@@ -1,3 +1,5 @@
+@use "./mixins";
+
 footer {
   background-color: var(--color-dark);
   padding-top:      5rem;
@@ -7,6 +9,19 @@ footer {
   
   .container {
     text-align: center;
+    
+    @include mixins.media-breakpoint-down(md) {
+      .flex-center {
+        flex-direction: column;
+        
+        .vr {
+          width: 100%;
+          max-width: 200px;
+          height: 1px;
+          margin: 1rem 0;
+        }
+      }
+    }
   }
   
   .social-links {
@@ -20,7 +35,6 @@ footer {
     
     .icon {
       --icon-size: 30px;
-      
     }
   }
 }

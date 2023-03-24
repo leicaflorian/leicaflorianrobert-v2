@@ -176,8 +176,10 @@
   }
   
   @include media-breakpoint-down(sm) {
-    column-count: 1;
-    text-align:   left;
+    &.multi-column-break-sm {
+      column-count: 1;
+      text-align:   left;
+    }
   }
 }
 

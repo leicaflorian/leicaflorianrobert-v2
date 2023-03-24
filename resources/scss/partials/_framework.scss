@@ -36,8 +36,17 @@
   }
   
   &.vr-fluid {
-    height:     100%;
+    height:     unset;
     min-height: 100%;
+  }
+  
+  @include media-breakpoint-down(md) {
+    &.vr-md-down-hr {
+      width:     100%;
+      max-width: 200px;
+      height:    1px;
+      margin:    1rem 0;
+    }
   }
 }
 
@@ -71,24 +80,31 @@
   margin-bottom: 5rem;
   color:         var(--color-light);
   position:      sticky;
-  top:           65px;
-  z-index:       1031;
+  top:           var(--section-title-sticky-top);
   transition:    color .3s ease, opacity .3s ease;
+  display:       inline-block;
   
-  &.not-stick {
+  &.stick {
+    position: sticky;
+    top:      var(--section-title-sticky-top);
+    z-index:  1031;
+    color:    var(--color-text-dark);
+  }
+  
+  &.ignore{
     position: relative;
     top:      0;
     z-index:  1;
   }
   
   @include media-breakpoint-down(lg) {
-    top: 55px;
+    //top: 55px;
   }
   
   @include media-breakpoint-down(md) {
-    position: relative;
-    top:      0;
-    z-index:  1;
+    //position: relative;
+    //top:      0;
+    //z-index:  1;
   }
   
   .subtitle {

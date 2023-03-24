@@ -143,11 +143,15 @@ header {
     white-space:      nowrap;
     transform-origin: top;
     transition:       width .3s ease;
-    text-align: center;
+    text-align:       center;
   
     & > * {
       transition: opacity .3s ease;
-      display: inline-block;
+      display:    inline-block;
+    }
+  
+    .hidden {
+      opacity: 0;
     }
   
     @include media-breakpoint-down(lg) {

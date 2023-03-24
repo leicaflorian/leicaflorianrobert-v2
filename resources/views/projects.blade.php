@@ -11,7 +11,7 @@
 
   <x-contact-section class="section-secondary" subtitle="Ora sai qualcosa in più," title="Scrivimi">
     <x-slot name="text">
-      <div class="multi-column-text mb-5">
+      <div class="multi-column-text multi-column-break-sm mb-5">
         <p>
           Se hai bisogno di un sito web, di un'applicazione mobile, di un logo o di un'identità visiva, o se hai
           semplicemente bisogno di un consiglio, non esitare a contattarmi!

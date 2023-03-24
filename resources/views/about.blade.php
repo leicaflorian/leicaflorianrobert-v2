@@ -5,7 +5,7 @@
     <div class="container text-center">
       <h1 class="mb-5 text-uppercase"><span class="small">Leica</span><br>Florian Robert</h1>
 
-      <div class="multi-column-text mb-5">
+      <div class="multi-column-text multi-column-break-sm mb-5">
         <p>
           Ciao, sono Florian Leica,
           sviluppatore Web Full Stack, UI e UX Designer, sviluppatore Mobile e molto altro.
@@ -46,7 +46,7 @@
   </section>
 
   <section class="section-secondary">
-    <div class="container container-fluid">
+    <div class="container container-fluid text-center">
 
       <h2 class="section-title text-center">
         <span class="subtitle">Ecco alcune</span>
@@ -61,9 +61,7 @@
         <div class="d-flex justify-center align-center align-md-stretch gap-1 flex-column flex-md-row">
           <h4 class="text-uppercase text-center color-primary text-md-right">Tecnologie e<br>linguaggi</h4>
 
-          <div>
-            <div class="vr vr-fluid"></div>
-          </div>
+          <div class="vr vr-fluid vr-md-down-hr mt-0"></div>
 
           <ul class="unstyled-list multi-column-text multi-column-gap-1 color-dark no-rule">
             @foreach($technologies as $tech)
@@ -78,7 +76,7 @@
 
   <x-contact-section subtitle="Ora sai qualcosa in più," title="Scrivimi">
     <x-slot name="text">
-      <div class="multi-column-text mb-5">
+      <div class="multi-column-text multi-column-break-sm mb-5">
         <p>
           Se hai bisogno di un sito web, di un'applicazione mobile, di un logo o di un'identità visiva, o se hai
           semplicemente bisogno di un consiglio, non esitare a contattarmi!
