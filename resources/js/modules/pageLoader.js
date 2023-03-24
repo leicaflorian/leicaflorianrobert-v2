@@ -12,9 +12,13 @@ export class PageLoader extends EventTarget {
   
   constructor () {
     super()
-    
+  
     this.loader = document.querySelector('#loader')
-    
+  
+    if (!this.loader) {
+      return
+    }
+  
     this.addEventListeners()
   }
   

@@ -8,6 +8,7 @@ export class PageChanger {
   static PAGE_CHANGING = 'pageChanging'
   
   initialLoaderDelay = 500
+  navbar
   links = []
   
   constructor () {
@@ -32,6 +33,7 @@ export class PageChanger {
   
   bindLinks (selector = 'header') {
     const headerLinks = document.querySelectorAll(selector + ' .route-link')
+    this.navbar = document.querySelector('header .navbar')
     
     this.addLinksEvent(headerLinks)
     
@@ -59,7 +61,7 @@ export class PageChanger {
     if (newUrl.pathname === window.location.pathname) {
       if (newUrl.hash) {
         window.scroll({
-          top: document.querySelector(newUrl.hash).offsetTop - 60,
+          top: document.querySelector(newUrl.hash).offsetTop - (this.navbar.offsetHeight - 20),
           behavior: 'smooth'
         })
       }

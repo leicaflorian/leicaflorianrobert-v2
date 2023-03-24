@@ -1,12 +1,12 @@
 import '../scss/app.scss'
 
-import './header'
 import './iconsLoader'
 import './contacts'
 import './mobileMenu'
 
 import { PageLoader } from './modules/pageLoader'
 import { PageChanger } from './modules/pageChanger'
+import { PageHeader } from './modules/pageHeader'
 import { registerModules } from './modules/moduleRegisterer'
 import { CardPopover } from './modules/cardPopover'
 import { Dialogs } from './modules/dialogs'
@@ -19,6 +19,7 @@ registerModules([
   Responsive,
   PageLoader,
   PageChanger,
+  PageHeader,
   CardPopover,
   Dialogs,
   Timeline,

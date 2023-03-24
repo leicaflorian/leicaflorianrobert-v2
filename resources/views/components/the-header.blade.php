@@ -2,7 +2,7 @@
   <div @class(["jumbo"])>
     <img src="{{asset('img/jumbo.png')}}" class="bg-img">
 
-    <div class="logo-container">
+    <div class="logo-container bordered-logo">
       <x-svg-icon icon="logo"/>
     </div>
   </div>
@@ -15,7 +15,7 @@
          class="navbar-item route-link {{ (strpos(Route::currentRouteName(), 'about') === 0) ? 'active' : '' }}"
          data-page-title="Su di me">Su di me</a>
 
-      <a href="" class="navbar-item route-link navbar-item-logo-placeholder"></a>
+      <div class="navbar-item-logo-placeholder"></div>
 
       <a href="{{ route('projects') }}"
          class="navbar-item route-link {{ (strpos(Route::currentRouteName(), 'projects') === 0) ? 'active' : '' }}"
@@ -42,7 +42,12 @@
         <x-svg-icon icon="icons/mdi-close"></x-svg-icon>
       </div>
 
+
       <div class="container">
+        <div class="color-primary bordered-logo mb-1" style="width: 100px; height: 100px; margin: auto;--logo-border-color: white">
+          <x-svg-icon icon="logo" />
+        </div>
+
         <ul class="unstyled-list">
           <a href="{{ route('home') }}"
              class="navbar-item route-link {{ (strpos(Route::currentRouteName(), 'home') === 0) ? 'active' : '' }}">Home</a>

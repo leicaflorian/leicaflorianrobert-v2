@@ -9,8 +9,10 @@ header {
   --logo-size:              120px;
   --logo-bg-blur:           10px;
   --logo-offset:            2vh;
+  --logo-border-color:      var(--color-light);
+  --logo-placeholder-size:  0;
   --img-scale:              1;
-  --page-title-translate-y: 0;
+  --page-title-translate-y: 0%;
   --page-title-scale:       1;
   
   display:                  flex;
@@ -30,9 +32,38 @@ header {
   }
   
   @include media-breakpoint-down(md) {
-    --navbar-height: 1px;
+    --navbar-height: 0.1px;
     
     .navbar {
+      z-index: 0 !important;
+    }
+  }
+  
+  .bordered-logo {
+    position: relative;
+    
+    &:before {
+      content:          "";
+      display:          block;
+      width:            90%;
+      height:           90%;
+      background-color: rgba(255, 255, 255, 0.2);
+      position:         absolute;
+      top:              5%;
+      left:             5%;
+      border-radius:    50%;
+      border:           4px solid var(--logo-border-color, white);
+      backdrop-filter:  blur(var(--logo-bg-blur, 0));
+      transition:       color .3s ease;
+    }
+    
+    .icon {
+      position:        relative;
+      display:         flex;
+      align-items:     center;
+      justify-content: center;
+      width:           100%;
+      height:          100%;
     }
   }
   
@@ -61,27 +92,8 @@ header {
       height:    var(--logo-size);
       z-index:   1031;
   
-      &:before {
-        content:          "";
-        display:          block;
-        width:            90%;
-        height:           90%;
-        background-color: rgba(255, 255, 255, 0.2);
-        position:         absolute;
-        top:              0;
-        left:             0;
-        border-radius:    50%;
-        border:           4px solid var(--color-light);
-        backdrop-filter:  blur(var(--logo-bg-blur));
-      }
-      
-      .icon {
-        position:        relative;
-        display:         flex;
-        align-items:     center;
-        justify-content: center;
-        width:           100%;
-        height:          100%;
+      @include media-breakpoint-down(md) {
+        opacity: calc(1 - (var(--header-percentage) / 100));
       }
     }
   }
@@ -121,7 +133,7 @@ header {
       }
   
       &.active {
-        color: var(--color-secondary);
+        color:           var(--color-secondary);
         text-decoration: underline;
       }
   
@@ -129,10 +141,14 @@ header {
         display: none;
       }
     }
+  
+    .navbar-item-logo-placeholder {
+      max-width: var(--logo-placeholder-size);
+    }
   }
   
   .page-title {
-    --trans-y:        calc(var(--page-title-translate-y) + (var(--navbar-height) * var(--header-percentage) / 100));
+    --trans-y:        calc(var(--page-title-translate-y) + (var(--navbar-height) * var(--header-percentage, 0) / 100));
   
     position:         absolute;
     bottom:           calc(var(--navbar-height) + (4px * var(--header-percentage) / 100));
@@ -180,11 +196,17 @@ header {
       opacity:          0;
       transform:        translateY(100%);
       transition:       opacity .3s ease, transform .3s ease;
-      
+      max-height:       100vh;
+      display:          flex;
+  
+      .container {
+        overflow: auto;
+      }
+  
       .unstyled-list {
         display:        flex;
         flex-direction: column;
-        
+    
         .navbar-item {
           flex:       1;
           color:      var(--color-dark);
