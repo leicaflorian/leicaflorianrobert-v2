@@ -11,6 +11,11 @@
   @endfragment
 
   @vite('resources/js/app.js', 'vendor/courier/build')
+
+  <!-- Start cookieyes banner -->
+  <script id="cookieyes" type="text/javascript"
+          src="https://cdn-cookieyes.com/client_data/179311aba89a53c8c6b20925/script.js"></script>
+  <!-- End cookieyes banner -->
 </head>
 <body class="loading">
   @fragment("header")

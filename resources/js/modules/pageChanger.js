@@ -14,6 +14,7 @@ export class PageChanger {
   constructor () {
     window.addEventListener('DOMContentLoaded', () => {
       this.bindLinks()
+      this.dispatchPageChanged(true)
     })
     
     window.addEventListener('popstate', async (e) => {

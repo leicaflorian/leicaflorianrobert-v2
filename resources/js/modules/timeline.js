@@ -43,17 +43,26 @@ export class Timeline {
       left: elRect.left - containerRect.left,
       right: containerRect.width - elRect.right + containerRect.left
     }
-    
+  
+    let center = 0
+  
+    if (window.Responsive.mediaBreakpointDown('md')) {
+      const halfWidth = elRect.width / 2
+      const halfContainerWidth = containerRect.width / 2
+      // center = halfContainerWidth - halfWidth
+    }
+  
     if (elPosition.left < 0) {
       this.timelineContainer.scrollTo({
-        left: this.timelineContainer.scrollLeft + elPosition.left,
+        left: this.timelineContainer.scrollLeft + elPosition.left - center,
         behavior: 'smooth'
       })
     } else if (elPosition.right < 0) {
       this.timelineContainer.scrollTo({
-        left: this.timelineContainer.scrollLeft - elPosition.right,
+        left: this.timelineContainer.scrollLeft - elPosition.right + center,
         behavior: 'smooth'
       })
     }
+  
   }
 }

@@ -106,6 +106,10 @@
   text-align: right !important;
 }
 
+.text-left {
+  text-align: left !important;
+}
+
 @include media-breakpoint-up(md) {
   .text-md-center {
     text-align: center !important;

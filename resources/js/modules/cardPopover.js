@@ -11,7 +11,7 @@ export class CardPopover {
   
   bindAllCards () {
     const cardPopovers = document.querySelectorAll('.card-popover')
-    
+  
     cardPopovers.forEach((cardPopover) => {
       if (cardPopover.cardPopoverBound) {
         return
@@ -99,7 +99,7 @@ export class CardPopover {
       right: containerRect.width - elRect.right + containerRect.left
     }
     
-    if (elPosition.right < 300 && elPosition.left < 300) {
+    if (elPosition.right < 420 && elPosition.left < 420) {
       cardPopover.dataset.popoverDirection = 'bottom'
     } else if (elPosition.right < 300) {
       cardPopover.dataset.popoverDirection = 'left'
