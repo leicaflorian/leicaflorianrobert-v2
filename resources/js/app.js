@@ -1,8 +1,6 @@
 import '../scss/app.scss'
 
-import './iconsLoader'
-import './contacts'
-import './mobileMenu'
+
 
 import { PageLoader } from './modules/pageLoader'
 import { PageChanger } from './modules/pageChanger'
@@ -26,3 +24,7 @@ registerModules([
   PageTitle,
   ImageLoader
 ])
+
+import './iconsLoader'
+import './contacts'
+import './mobileMenu'
