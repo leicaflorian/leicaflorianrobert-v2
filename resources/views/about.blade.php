@@ -3,7 +3,7 @@
 
   <section class="pt-10">
     <div class="container text-center">
-      <h1 class="mb-5 text-uppercase"><span class="small">Ciao,</span><br>benvento/a</h1>
+      <h1 class="mb-5 text-uppercase"><span class="small">Ciao,</span><br>benvenuto/a</h1>
 
       <div class="multi-column-text multi-column-break-sm mb-5">
         <p>

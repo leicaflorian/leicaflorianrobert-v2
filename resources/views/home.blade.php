@@ -1,4 +1,6 @@
 <x-layout.app bgImage="img/home.jpg" :headerCondensed="true">
+  <x-slot name="headerBgAlign">align-center</x-slot>
+
   <section>
     <div class="container text-center">
       <h1 class="mb-5 text-uppercase"><span class="small">Leica</span><br>Florian Robert</h1>

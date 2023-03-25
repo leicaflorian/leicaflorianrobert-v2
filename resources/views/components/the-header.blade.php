@@ -1,6 +1,6 @@
 <header @class([ "condensed" => $condensed])>
   <div @class(["jumbo"])>
-    <img src="{{asset($bgImage)}}" class="bg-img">
+    <img src="{{asset($bgImage)}}" class="bg-img {{$headerBgAlign ?? ""}}">
 
     <div class="logo-container bordered-logo">
       <x-svg-icon icon="logo"/>
@@ -44,8 +44,9 @@
 
 
       <div class="container">
-        <div class="color-primary bordered-logo mb-1" style="width: 100px; height: 100px; margin: auto;--logo-border-color: white">
-          <x-svg-icon icon="logo" />
+        <div class="color-primary bordered-logo mb-1"
+             style="width: 100px; height: 100px; margin: auto;--logo-border-color: white">
+          <x-svg-icon icon="logo"/>
         </div>
 
         <ul class="unstyled-list">

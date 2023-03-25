@@ -31,8 +31,12 @@
   <!-- End cookieyes banner -->
 </head>
 <body class="loading">
+
   @fragment("header")
   <x-the-header :condensed="$headerCondensed" :pageTitle="$pageTitle ?? null" :bgImage="$bgImage ?? null">
+    @if (isset($headerBgAlign))
+      <x-slot name="headerBgAlign">{{$headerBgAlign}}</x-slot>
+    @endif
   </x-the-header>
   @endfragment
 

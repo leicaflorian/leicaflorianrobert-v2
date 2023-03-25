@@ -74,13 +74,17 @@ header {
     height:   var(--header-height);
     
     .bg-img {
-      width:      100%;
-      height:     100%;
-      object-fit: cover;
+      width:           100%;
+      height:          100%;
+      object-fit:      cover;
       object-position: left;
-      display:    inline-block;
-      position:   absolute;
-      scale:      var(--img-scale);
+      display:         inline-block;
+      position:        absolute;
+      scale:           var(--img-scale);
+  
+      &.align-center {
+        object-position: center;
+      }
     }
     
     .logo-container {
