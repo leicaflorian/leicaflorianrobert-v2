@@ -32,21 +32,27 @@ export class PageChanger {
     })
   }
   
-  bindLinks (selector = 'header') {
+  bindLinks (selector = '') {
     const headerLinks = document.querySelectorAll(selector + ' .route-link')
     this.navbar = document.querySelector('header .navbar')
-    
+  
     this.addLinksEvent(headerLinks)
-    
+  
     // store links
     this.links.push(...headerLinks)
   }
   
   addLinksEvent (links) {
     links.forEach(link => {
+      if (link.pageChangerBound) {
+        return
+      }
+  
+      link.pageChangerBound = true
+  
       link.addEventListener('click', async (e) => {
         e.preventDefault()
-        
+    
         await this.navigateToPage(e.target.href)
       })
     })
@@ -61,6 +67,7 @@ export class PageChanger {
     
     if (newUrl.pathname === window.location.pathname) {
       if (newUrl.hash) {
+  
         window.scroll({
           top: document.querySelector(newUrl.hash).offsetTop - (this.navbar.offsetHeight - 20),
           behavior: 'smooth'
@@ -91,7 +98,7 @@ export class PageChanger {
     this.dispatchEvent(PageChanger.PAGE_CHANGING)
     
     //  must reconnect the header events
-    this.bindLinks('header')
+    this.bindLinks()
     
     await this.toggleLoader(false)
     
@@ -163,5 +170,13 @@ export class PageChanger {
   
   updateHistory (url) {
     window.history.pushState({}, '', url)
+  }
+  
+  getAbsolutePosition (element) {
+    let rect = element.getBoundingClientRect()
+    return {
+      top: rect.top + window.scrollY,
+      left: rect.left + window.scrollX
+    }
   }
 }

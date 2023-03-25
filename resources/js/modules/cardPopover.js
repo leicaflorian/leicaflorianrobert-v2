@@ -25,21 +25,31 @@ export class CardPopover {
   
   bindCard (cardPopover) {
     cardPopover.id = 'card-popover-' + Math.random().toString(36).slice(2, 9)
-    
+  
     const cardImg = cardPopover.querySelector('.card-img')
     const offcanvas = cardPopover.querySelector('.card-offcanvas')
     const expandCardBtn = cardPopover.querySelector('[data-target="expand-card"]')
-    
+  
     this.timers[cardPopover.id] = null
-    
+  
     cardImg.addEventListener('mouseenter', (e) => this.onCardMouseEnter(e, cardPopover, offcanvas))
     cardImg.addEventListener('mouseleave', (e) => this.onCardMouseLeave(e, cardPopover, offcanvas))
     cardPopover.addEventListener('transitionend', (e) => this.onCardTransitionEnd(e, cardPopover, offcanvas))
-    
+  
+    this.addTouchEvent(cardImg, (e) => {
+      if (window.Responsive.mediaBreakpointDown('sm')) {
+        e.preventDefault()
+        e.stopPropagation()
+      
+        this.openCardDialog(cardPopover)
+      
+      }
+    })
+  
     if (expandCardBtn) {
       expandCardBtn.addEventListener('click', function (event) {
         event.preventDefault()
-        
+      
         cardPopover.expanded = true
       })
     }
@@ -98,7 +108,7 @@ export class CardPopover {
       left: elRect.left - containerRect.left,
       right: containerRect.width - elRect.right + containerRect.left
     }
-    
+  
     if (elPosition.right < 420 && elPosition.left < 420) {
       cardPopover.dataset.popoverDirection = 'bottom'
     } else if (elPosition.right < 300) {
@@ -106,5 +116,58 @@ export class CardPopover {
     } else if (elPosition.left < 300) {
       cardPopover.dataset.popoverDirection = ''
     }
+  }
+  
+  openCardDialog (cardPopover) {
+    const innerLink = cardPopover.querySelector('a[data-action="dialog"]')
+    
+    if (innerLink) {
+      innerLink.click()
+      
+      return
+    }
+    
+    // show a new dialog based on the card content
+    const cardContent = cardPopover.querySelector('.card-offcanvas')
+    const dialogHeader = document.createElement('template')
+    const dialogBody = document.createElement('template')
+    
+    dialogHeader.id = 'title'
+    dialogBody.id = 'body'
+    
+    dialogHeader.innerHTML = cardPopover.querySelector('.card-text')?.innerHTML
+    dialogBody.innerHTML = cardContent.innerHTML
+    
+    window.Dialogs.createDialog([
+      dialogHeader,
+      dialogBody
+    ])
+  }
+  
+  addTouchEvent (target, callback) {
+    let started = false
+    let moved = false
+    
+    target.addEventListener('touchstart', (e) => {
+      e.stopPropagation()
+      
+      started = true
+    })
+    
+    target.addEventListener('touchmove', () => {
+      moved = true
+    })
+    
+    target.addEventListener('touchend', (e) => {
+      e.stopPropagation()
+      
+      if (started && !moved) {
+        callback(e)
+      }
+      
+      started = false
+      moved = false
+    })
+    
   }
 }

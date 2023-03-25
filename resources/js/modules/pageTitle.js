@@ -29,6 +29,8 @@ export class PageTitle {
       } else {
         this.ignoringTitles = false
       }
+  
+      this.debounce('scroll', this.settings.debounce, this.onPageScroll.bind(this))
     })
     
     window.addEventListener('scroll', () => this.debounce('scroll', this.settings.debounce, this.onPageScroll.bind(this)))

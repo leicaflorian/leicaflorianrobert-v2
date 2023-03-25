@@ -111,7 +111,7 @@ export class Dialogs {
       window.dispatchEvent(new CustomEvent(Dialogs.DIALOG_OPENED, {
         detail: newNode
       }))
-    })
+    }, 50)
   }
   
   /**

@@ -27,6 +27,8 @@
 
             <div>Email:&nbsp;<a href="mailto: info@leicaflorianrobert.dev">info@leicaflorianrobert.dev</a></div>
             <div>Pec:&nbsp;<a href="mailto: florian.leica@pec.it">florian.leica@pec.it</a></div>
+            <br>
+            <a href="#contacts" class="btn btn-accent btn-sm route-link">Scrivimi!</a>
           </div>
 
           <div class="vr vr-fluid" style="flex: 0 0 1px"></div>
@@ -35,10 +37,10 @@
             <h4 class="col-title"><strong>Social</strong></h4>
 
             <div class="social-links">
-              <a href="#">
+              <a href="https://github.com/leicaflorian" target="_blank">
                 <x-svg-icon icon="icons/github"></x-svg-icon>
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/in/florian-robert-leica/" target="_blank">
                 <x-svg-icon icon="icons/linkedin"></x-svg-icon>
               </a>
             </div>
