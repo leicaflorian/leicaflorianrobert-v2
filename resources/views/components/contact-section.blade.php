@@ -5,7 +5,20 @@
       <span class="title">{{$title}}</span>
     </h3>
 
-    {!! $text !!}
+    @if(!empty($text))
+      <div class="section-text">
+        {!! $text !!}
+      </div>
+    @else
+      <div class="section-text">
+        <p class="lead mb-5">Sia che tu stia cercando di creare un sito web aziendale, un e-commerce, un blog o
+          qualsiasi altra soluzione
+          web, sono qui per aiutarti. Contattami oggi stesso per scoprire come possiamo collaborare e creare un sito web
+          straordinario insieme!
+        </p>
+      </div>
+    @endif
+
 
     <form action="{{route('contacts.store')}}" method="POST" id="contact-form">
       <fieldset class="form-group-row">

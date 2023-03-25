@@ -76,12 +76,10 @@
 
   <x-contact-section subtitle="Ora sai qualcosa in più," title="Scrivimi">
     <x-slot name="text">
-      <div class="multi-column-text multi-column-break-sm mb-5">
+      <div class="lead mb-5">
         <p>
           Se hai bisogno di un sito web, di un'applicazione mobile, di un logo o di un'identità visiva, o se hai
           semplicemente bisogno di un consiglio, non esitare a contattarmi!
-        </p>
-        <p>
           Sono sempre alla ricerca di nuove sfide, nuovi entusiasmanti progetti e nuove opportunità per migliorare come
           persona e come professionista.
         </p>

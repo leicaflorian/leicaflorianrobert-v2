@@ -1,6 +1,4 @@
-@use "bootstrap/scss/vendor/rfs";
-@import "../variables";
-@import "bootstrap/scss/mixins/breakpoints";
+@use "./mixins" as *;
 
 .container {
   width:         100%;
@@ -64,75 +62,16 @@
   }
 }
 
-.section-secondary {
-  background-color: var(--color-secondary);
-}
-
-.section-fluid {
-  min-height: unset;
-}
-
-.section-small {
-  min-height: 50vh;
-}
-
-.section-title {
-  margin-bottom: 5rem;
-  color:         var(--color-light);
-  position:      sticky;
-  top:           var(--section-title-sticky-top);
-  transition:    color .3s ease, opacity .3s ease;
-  display:       inline-block;
-  
-  &.stick {
-    position: sticky;
-    top:      var(--section-title-sticky-top);
-    z-index:  1031;
-    color:    var(--color-text-dark);
-  }
-  
-  &.ignore{
-    position: relative;
-    top:      0;
-    z-index:  1;
-  }
-  
-  @include media-breakpoint-down(lg) {
-    //top: 55px;
-  }
-  
-  @include media-breakpoint-down(md) {
-    //position: relative;
-    //top:      0;
-    //z-index:  1;
-  }
-  
-  .subtitle {
-    @include rfs.rfs(24px, "font-size");
-    font-weight: 400;
-    display:     block;
-    line-height: 35px;
-  }
-  
-  .title {
-    @include rfs.rfs(55px, "font-size");
-    font-weight:    700;
-    line-height:    1.2;
-    text-transform: uppercase;
-    display:        block;
-  }
-  
-  &.sticked {
-    color: var(--color-dark);
-  }
-}
-
 .panel {
   padding: 1rem;
   
   &.panel-light {
     background-color: var(--color-light);
     color:            var(--color-text-dark);
+  
+    .section-title {
+      color: var(--color-text-dark);
+    }
   }
 }
 

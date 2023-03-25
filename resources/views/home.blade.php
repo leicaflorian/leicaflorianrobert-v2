@@ -25,7 +25,19 @@
 
   <section class="section-secondary section-fluid pt-0 pb-0 mt-5">
     <div class="container">
-      <div class="panel panel-light offset-top-5 py-5">
+      <div class="panel panel-light offset-top-5 py-5 text-center">
+        <h2 class="section-title">
+          <span class="subtitle">Cosa posso</span>
+          <span class="title">fare per te?</span>
+        </h2>
+
+        <p class="lead mb-5">
+          Come Web Developer, mi piace creare soluzioni web personalizzate che soddisfino le esigenze
+          specifiche dei miei clienti e che ne semplifichi il lavoro e le operazioni quotidiane.
+          <br>
+          Ecco alcune cose che ti potrebbero interessare!
+        </p>
+
         <div class="d-flex fill-childs" data-popover-parent>
           <div class="card-popover card-popover-small">
             <div class="card-body ">
@@ -33,8 +45,12 @@
                 <img src="{{asset('/img/jumbo.png')}}" alt="">
 
                 <div class="card-offcanvas">
-                  Per essere presenti e farsi conoscere online, un sito web è d'obbligo. Che sia un sito vetrina,
-                  multipagina, statico o eCommerce, usando le giuste tecnologie, tutto si può fare.
+                  <div class="mb-1">
+                    Se sei alla ricerca di un professionista che possa aiutarti a creare il tuo sito web o la tua
+                    applicazione web, sei nel posto giusto!
+                  </div>
+
+                  <a class="route-link d-inline-block text-underline" href="#contacts">Scrivimi!</a>
                 </div>
               </div>
 
@@ -50,12 +66,16 @@
                 <img src="{{asset('/img/jumbo.png')}}" alt="">
 
                 <div class="card-offcanvas">
-                  Per essere presenti e farsi conoscere online, un sito web è d'obbligo. Che sia un sito vetrina,
-                  multipagina, statico o eCommerce, usando le giuste tecnologie, tutto si può fare.
+                  <div class="mb-1">
+                    Hai bisogno di un app per promuovere la tua attività e non sai da dove iniziare?
+                    Fatti sentire e non ti dovrai preoccupare più di nulla.
+                  </div>
+
+                  <a class="route-link d-inline-block text-underline" href="#contacts">Scrivimi!</a>
                 </div>
               </div>
               <div class="card-text">
-                MOBILE DEVELOPER asdsdasda sdasdas dasdas
+                MOBILE DEVELOPER
               </div>
             </div>
           </div>
@@ -65,8 +85,12 @@
                 <img src="{{asset('/img/jumbo.png')}}" alt="">
 
                 <div class="card-offcanvas">
-                  Per essere presenti e farsi conoscere online, un sito web è d'obbligo. Che sia un sito vetrina,
-                  multipagina, statico o eCommerce, usando le giuste tecnologie, tutto si può fare.
+                  <div class="mb-1">
+                    Si sa, anche l'occhio vuole la sua parte. Hai un idea in mente e vuoi che attiri l'attenzione dei
+                    tuoi clienti? Sicuramente la possiamo rendere accattivante!
+                  </div>
+
+                  <a class="route-link d-inline-block text-underline" href="#contacts">Scrivimi!</a>
                 </div>
               </div>
               <div class="card-text">
