@@ -23,7 +23,7 @@
 
   @include ("components.social-meta-tags")
 
-  @vite('resources/js/app.js', 'vendor/courier/build')
+  @vite('resources/js/app.js')
 
   <!-- Start cookieyes banner -->
   <script id="cookieyes" type="text/javascript"
