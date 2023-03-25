@@ -9,7 +9,7 @@ export class PageChanger {
   // after content is loaded but before loader is hidden
   static PAGE_CHANGING = 'pageChanging'
   
-  initialLoaderDelay = 500
+  initialLoaderDelay = 1500
   navbar
   links = []
   loadContent = ''
@@ -17,7 +17,7 @@ export class PageChanger {
   constructor () {
     window.addEventListener('DOMContentLoaded', () => {
       this.bindLinks()
-      this.dispatchPageChanged(true)
+      // this.dispatchPageChanged(true)
     })
     
     window.addEventListener('popstate', async (e) => {
