@@ -1,4 +1,6 @@
 export class Responsive {
+  static name = 'Responsive'
+  
   _breakpoints = {
     'xs': 0,
     'sm': 576,

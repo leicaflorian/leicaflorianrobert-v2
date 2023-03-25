@@ -1,4 +1,6 @@
 export class PageLoader extends EventTarget {
+  static name = 'PageLoader'
+  
   loader = null
   
   pendingAction

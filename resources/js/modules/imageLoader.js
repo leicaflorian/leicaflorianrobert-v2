@@ -2,6 +2,8 @@ import { PageChanger } from './pageChanger'
 import { Dialogs } from './dialogs'
 
 export class ImageLoader {
+  static name = 'ImageLoader'
+  
   constructor () {
     window.addEventListener('DOMContentLoaded', () => {
       this.bindImages()

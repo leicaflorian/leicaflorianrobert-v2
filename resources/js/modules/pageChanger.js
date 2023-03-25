@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 export class PageChanger {
+  static name = 'PageChanger'
+  
   // after loader is hidden
   static PAGE_CHANGED = 'pageChanged'
   

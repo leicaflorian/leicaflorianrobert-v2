@@ -1,6 +1,7 @@
 import { PageChanger } from './pageChanger'
 
 export class PageHeader {
+  static name = 'PageHeader'
   
   header
   headerBgImg

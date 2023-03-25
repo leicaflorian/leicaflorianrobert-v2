@@ -2,6 +2,8 @@ import { PageChanger } from './pageChanger'
 import { Responsive } from './responsive'
 
 export class PageTitle {
+  static name = 'PageTitle'
+  
   titles
   header
   mainTitle

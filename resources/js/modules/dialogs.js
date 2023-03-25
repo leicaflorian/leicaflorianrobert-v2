@@ -1,4 +1,5 @@
 export class Dialogs {
+  static name = 'Dialogs'
   static DIALOG_OPENED = 'dialogOpened'
   
   constructor () {

@@ -3,6 +3,8 @@ window.addEventListener('pageChanged', function () {
 })
 
 export class Timeline {
+  static name = 'Timeline'
+  
   /**
    * @type {HTMLElement}
    */

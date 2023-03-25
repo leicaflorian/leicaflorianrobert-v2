@@ -1,6 +1,7 @@
 let active = null
 
 export class CardPopover {
+  static name = 'CardPopover'
   timers = {}
   
   constructor () {
