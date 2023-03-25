@@ -28,6 +28,7 @@ export class PageLoader extends EventTarget {
     }
     
     this.shown = new Deferred()
+    this.hidden = null
     
     this.currentEvent = 'show'
     this.loader.style.display = ''
@@ -43,7 +44,7 @@ export class PageLoader extends EventTarget {
         this.onShowComplete()
   
         resolve()
-      })
+      }, 300)
     })
   }
   
@@ -56,6 +57,7 @@ export class PageLoader extends EventTarget {
     
     this.currentEvent = 'hide'
     this.hidden = new Deferred()
+    this.shown = null
     
     return new Promise(async resolve => {
       this.loader.classList.replace("animate-in", 'animate-out')
@@ -68,7 +70,7 @@ export class PageLoader extends EventTarget {
       this.onHideComplete()
   
       resolve()
-    })
+    }, 300)
     
   }
   

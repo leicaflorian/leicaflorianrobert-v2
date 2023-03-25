@@ -10,6 +10,7 @@ export class PageChanger {
   initialLoaderDelay = 500
   navbar
   links = []
+  loadContent = ''
   
   constructor () {
     window.addEventListener('DOMContentLoaded', () => {
@@ -19,8 +20,8 @@ export class PageChanger {
     
     window.addEventListener('popstate', async (e) => {
       const newLocation = e.target.location.href
-      
-      await this.navigateToPage(newLocation)
+  
+      await this.navigateToPage(newLocation, true)
     })
     
     window.addEventListener('load', () => {
@@ -58,16 +59,16 @@ export class PageChanger {
     })
   }
   
-  async navigateToPage (href) {
+  async navigateToPage (href, fromHistory) {
     if (!href) {
       return
     }
     
     const newUrl = new URL(href)
     
-    if (newUrl.pathname === window.location.pathname) {
+    if (newUrl.pathname === this.loadContent) {
       if (newUrl.hash) {
-  
+        
         window.scroll({
           top: document.querySelector(newUrl.hash).offsetTop - (this.navbar.offsetHeight - 20),
           behavior: 'smooth'
@@ -93,7 +94,10 @@ export class PageChanger {
     
     // console.log('showing new Content')
     this.showNewContent(pageContent)
-    this.updateHistory(href)
+    
+    if (!fromHistory) {
+      this.updateHistory(href)
+    }
     
     this.dispatchEvent(PageChanger.PAGE_CHANGING)
     
@@ -149,7 +153,9 @@ export class PageChanger {
     if (toggleLoader) {
       await this.toggleLoader(false)
     }
-    
+  
+    this.loadContent = window.location.href
+  
     this.dispatchEvent(PageChanger.PAGE_CHANGED)
   }
   
