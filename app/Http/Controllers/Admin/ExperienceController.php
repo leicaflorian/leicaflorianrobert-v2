@@ -110,7 +110,12 @@ class ExperienceController extends Controller {
    */
   public function destroy(Experience $experience): RedirectResponse {
     $experience->delete();
-    
+  
+    // first remove the related image
+    if ($experience->companyLogo) {
+      Storage::delete($experience->companyLogo);
+    }
+  
     return redirect()->route('admin.experiences.index');
   }
 }
