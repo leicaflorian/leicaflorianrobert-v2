@@ -22,6 +22,11 @@ export class Timeline {
       
       this.bindEvents()
       
+      this.timelineContainer.scrollTo({
+        left: this.timelineContainer.scrollWidth,
+        behavior: 'smooth'
+      })
+      
       this.timelineContainer.timelineBound = true
     })
   }

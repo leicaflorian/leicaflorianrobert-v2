@@ -3,37 +3,36 @@
 
   <section class="pt-10">
     <div class="container text-center">
-      <h1 class="mb-5 text-uppercase"><span class="small">Leica</span><br>Florian Robert</h1>
+      <h1 class="mb-5 text-uppercase"><span class="small">Ciao,</span><br>benvento/a</h1>
 
       <div class="multi-column-text multi-column-break-sm mb-5">
         <p>
-          Ciao, sono Florian Leica,
-          sviluppatore Web Full Stack, UI e UX Designer, sviluppatore Mobile e molto altro.
+          Sono <strong>Leica Florian Robert</strong>,
+          sviluppatore Web Full Stack, UI e UX Designer, sviluppatore Mobile, insegnante tecnologie web, grande
+          appassionato d'informatica e ti tecnologia.
         </p>
         <p>
-          Prima di essere tutto questo, sono una persona, molto appassionato di tutto quello che riguarda l'informatica
-          in quanto offre opportunità uniche e per questo motivo credo fortemente nel suo potenziale e cerco di
-          trasmettere la mia convinzione / passione anche ad altri.
+          Adoro questi settori in quanto offrono opportunità uniche e (a volte) semplificano di molto la vita o comunque
+          la
+          migliorano e questa mia passione cerco di trasmetterla anche ad altri.
         </p>
         <p>
-          In particolare adoro il mondo della programmazione in quanto è lo strumento che ci permette di creare questo
-          mondo virtuale, dove l'unico limite è l'immaginazione!
-        </p>
-
-        <p>
-          Questa è stata la convinzione che dall'inizio della mia carriera professionale mi ha spinto a voler imparare e
-          così ho iniziato a programmare da autodidatta.
+          Dall'inizio della mia carriera professionale questa passione mi ha spinto a voler imparare il più possibile
+          come funziona il web, come funziona l'informatica e come posso a mia volta farne parte anche io.
         </p>
         <p>
+          Ho iniziato a programmare da autodidatta.
           Giorno dopo giorno, tassello dopo tassello, ho imparato cose nuove, mi sono costantemente messo alla prova,
           allargando i miei limiti, a volte anche fallendo, ma tutto questo mi ha fatto crescere professionalmente e
           acquisire le capacità necessarie per rendere questa passione un lavoro.
         </p>
-
         <p>
           Attualmente ho la splendida opportunità di trasmettere anche ad altri la mia passione, la mia esperienza e le
           conoscenze acquisite, formando programmatori Full Stack ed insegnando loro tutto il necessario per poter
           contribuire attivamente al mondo della programmazione!
+          <br>
+          Oltre ad insegnare, continuo a lavorare come sviluppatore e mi diletto nello sperimentare nuove tecnologie e
+          continuare ad imparare cose nuove.
         </p>
       </div>
 
@@ -47,11 +46,26 @@
 
   <section class="section-secondary">
     <div class="container container-fluid text-center">
-
       <h2 class="section-title text-center">
         <span class="subtitle">Ecco alcune</span>
         <span class="title">Esperienze</span>
       </h2>
+
+      <div class="container text-center">
+        <p class="lead mb-5">
+          Queste sono alcune delle esperienze più significative che ho avuto nel corso della mia carriera. Ci sono stati
+          molti altri progetti e collaborazioni, e tutte queste esperienze mi hanno permesso di
+          crescere professionalmente, ma sicuramente queste sono le più importanti.
+        </p>
+
+        <p class="lead mb-5">
+          Se vuoi sapere qualcosa di pi non esitare a contattarmi!
+
+          <br>
+
+          <a href="#contacts" class="route-link btn btn-accent mt-3">Contattami</a>
+        </p>
+      </div>
 
       <x-experiences-slider></x-experiences-slider>
 

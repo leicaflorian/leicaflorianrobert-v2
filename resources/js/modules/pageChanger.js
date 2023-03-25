@@ -154,7 +154,7 @@ export class PageChanger {
       await this.toggleLoader(false)
     }
   
-    this.loadContent = window.location.href
+    this.loadContent = window.location.pathname
   
     this.dispatchEvent(PageChanger.PAGE_CHANGED)
   }
