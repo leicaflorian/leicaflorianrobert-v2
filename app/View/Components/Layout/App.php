@@ -8,12 +8,14 @@ use Illuminate\View\Component;
 
 class App extends Component {
   public bool $headerCondensed = false;
+  public string|null $bgImage = null;
   
   /**
    * Create a new component instance.
    */
-  public function __construct(bool $headerCondensed = false) {
+  public function __construct(bool $headerCondensed = false, $bgImage = null) {
     $this->headerCondensed = $headerCondensed;
+    $this->bgImage         = $bgImage;
   }
   
   /**

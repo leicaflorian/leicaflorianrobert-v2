@@ -9,13 +9,15 @@ use Illuminate\View\Component;
 class TheHeader extends Component {
   public bool $condensed = false;
   public string|null $pageTitle = null;
+  public string|null $bgImage = null;
   
   /**
    * Create a new component instance.
    */
-  public function __construct($condensed = false, $pageTitle = null) {
+  public function __construct($condensed = false, $pageTitle = null, $bgImage = null) {
     $this->condensed = $condensed;
     $this->pageTitle = $pageTitle;
+    $this->bgImage   = $bgImage;
   }
   
   /**

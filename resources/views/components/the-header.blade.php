@@ -1,6 +1,6 @@
 <header @class([ "condensed" => $condensed])>
   <div @class(["jumbo"])>
-    <img src="{{asset('img/jumbo.png')}}" class="bg-img">
+    <img src="{{asset($bgImage)}}" class="bg-img">
 
     <div class="logo-container bordered-logo">
       <x-svg-icon icon="logo"/>

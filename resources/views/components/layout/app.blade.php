@@ -19,7 +19,8 @@
 </head>
 <body class="loading">
   @fragment("header")
-  <x-the-header :condensed="$headerCondensed" :pageTitle="$pageTitle ?? null"></x-the-header>
+  <x-the-header :condensed="$headerCondensed" :pageTitle="$pageTitle ?? null" :bgImage="$bgImage ?? null">
+  </x-the-header>
   @endfragment
 
   @fragment('main')
