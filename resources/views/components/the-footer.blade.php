@@ -8,12 +8,14 @@
 
         <h4 class="col-title"><strong>Leica Florian Robert</strong></h4>
 
-        <div>Via Pozza Maraschin, 44/B</div>
-        <div>36015 Schio, VI</div>
+        <div class="small">
+          <div>Via Pozza Maraschin, 44/B</div>
+          <div>36015 Schio, VI</div>
 
-        <div>P. Iva: 04329800249</div>
-        <div>REA: VI - 396256</div>
-        <div>SDI: M5UXCR1</div>
+          <div>P. Iva: 04329800249</div>
+          <div>REA: VI - 396256</div>
+          <div>SDI: M5UXCR1</div>
+        </div>
       </div>
 
       <div class="vr vr-fluid"></div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace config\database\seeders;
+namespace Database\Seeders;
 
 use App\Models\Project;
 use Illuminate\Database\Seeder;
@@ -14,42 +14,44 @@ class ProjectsSeeder extends Seeder {
       [
         "title"       => 'Biologica Disinfestazioni',
         "description" => 'Official site for the company Biologica Disinfestazioni',
-        "image"       => 'https://uploads-ssl.webflow.com/61af21b02799774300900f28/624709bdd1cbf50f2ace0042_logo%20wide.jpg',
+        "image"       => 'projects/biologica.png',
         "link"        => 'https://biologicadisinfestazioni.it',
         "date"        => "2022-03-01"
       ],
       [
         "title"       => 'Global Group Consulting',
-        "description" => 'Android and iOS application for the company Global Club',
-        "image"       => '/global club.webp',
-        "link"        => 'https://globalgroup.consulting',
+        "description" => 'Main web application and all the infrastructure for the company Global Group Consulting',
+        "image"       => 'projects/globalgroup.png',
+        "link"        => 'https://private.globalgroup.consulting/',
         "date"        => "2020-09-01"
       ],
       [
         "title"       => 'Global Club App',
-        "description" => 'Android and iOS application for the company Global Club',
-        "image"       => '/global club.webp',
-        "link"        => 'https://apps.apple.com/it/app/global-club/id1603085370',
+        "description" => 'Web application and Android and iOS mobile application for the company Global Club',
+        "image"       => 'projects/global_club.webp',
+        "link"        => 'https://globalgroup.consulting/club/',
         "date"        => "2021-09-01"
       ],
       [
         "title"       => 'My website V1',
-        "description" => 'The site you are currently on. Nothing too fancy, just a simple portfolio site.',
-        "image"       => '/banner.jpg',
+        "description" => 'My old personal website. Nothing too fancy, just a simple portfolio site.',
+        "image"       => 'projects/leicaflorian.v1.png',
         "github"      => 'https://github.com/leicaflorian/slides.com_downloader',
+        "link"        => 'https://v1.leicaflorianrobert.dev',
         "date"        => "2021-04-01"
       ],
       [
         "title"       => 'My website V2',
-        "description" => 'The site you are currently on. Nothing too fancy, just a simple portfolio site.',
-        "image"       => '/banner.jpg',
+        "description" => 'The site you are currently on. Build with love and passion, using vanilla JS, Sass, PHP and Laravel',
+        "image"       => 'projects/leicaflorian.v2.png',
         "github"      => 'https://github.com/leicaflorian/slides.com_downloader',
+        "link"        => 'https://leicaflorianrobert.dev',
         "date"        => "2023-03-01"
       ],
       [
         "title"       => 'Slides.com downloader',
         "description" => 'Chrome/Edge extension that allows you to download slides.com presentations',
-        "image"       => 'https://lh3.googleusercontent.com/L9a8S1WWEnY_mAuOurVqI81zIH_N0hAzPGADDKtwEY_OBFr0hiRrEY7Rbu6icKy4Pw1QKAYKCjQSvbwD_atVPUA4ng=w640-h400-e365-rj-sc0x00ffffff',
+        "image"       => 'projects/slides.com.jpeg',
         "link"        => 'https://chrome.google.com/webstore/detail/slidescom-downloader/bciknjamldhnbbckmgbchmkdcalngnco?hl=it',
         "github"      => 'https://github.com/leicaflorian/leicaflorianrobert',
         "date"        => "2022-08-01"
@@ -57,6 +59,7 @@ class ProjectsSeeder extends Seeder {
       [
         "title"       => 'Fold my paper',
         "description" => 'Simple app that allows you to mock the folding of a single sheet of paper more that 7 times... Try it and see how far you can go!',
+        "image"       => 'projects/fold_my_paper.png',
         "link"        => 'https://leicaflorian.github.io/fold_my_paper',
         "github"      => 'https://github.com/leicaflorian/fold_my_paper',
         "date"        => "2021-12-01"
@@ -64,19 +67,22 @@ class ProjectsSeeder extends Seeder {
       [
         "title"       => 'Enigma',
         "description" => 'A simple app that encrypts and decrypts messages using the Enigma machine',
+        "image"       => 'projects/enigma.png',
         "link"        => 'https://leicaflorian.github.io/enigma_machine',
         "github"      => 'https://github.com/leicaflorian/enigma_machine',
         "date"        => "2021-12-01"
       ],
       [
         "title"       => 'TvIt',
-        "description" => 'App that allows you to view italian iptv channels',
-        "link"        => 'https://hometv.herokuapp.com/',
-        "github"      => 'https://github.com/leicaflorian/hometv',
+        "description" => 'App that allows you to view italian iptv channels and exposes an API to get the channels list as well as the EPG guide',
+        "image"       => 'projects/tvit.png',
+        "link"        => 'https://tvit.leicaflorianrobert.dev/channels',
+        "github"      => 'https://github.com/leicaflorian/tvit',
         "date"        => "2022-06-01"
       ], [
         "title"       => 'Fibonacci Counter',
         "description" => 'App that show how to generate the Fibonacci sequence using different methods',
+        "image"       => 'projects/fibonacci_counter.png',
         "link"        => 'https://leicaflorian.github.io/fibonacci_counter/',
         "github"      => 'https://github.com/leicaflorian/fibonacci_counter',
         "date"        => "2020-07-01"

@@ -23,4 +23,11 @@
       <x-forms.experience-upsert :experience="$experience" :update="true"></x-forms.experience-upsert>
     </div>
   </section>
+
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <script type="text/javascript">
+    tinymce.init({
+      selector: '#input_content',
+    });
+  </script>
 </x-layout.app>

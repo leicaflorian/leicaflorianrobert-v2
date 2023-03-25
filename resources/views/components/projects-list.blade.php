@@ -25,7 +25,7 @@
               <x-svg-icon icon="icons/mdi-link"/>
             </a>
           @else
-            {{ $project->title }}˘
+            {{ $project->title }}
           @endif
         </div>
       </div>

@@ -113,8 +113,13 @@ class ProjectController extends Controller {
    * @return RedirectResponse
    */
   public function destroy(Project $project): RedirectResponse {
-    $project->destroy();
-    
+    $project->delete();
+  
+    // first remove the related image
+    if ($project->image) {
+      Storage::delete($project->image);
+    }
+  
     return redirect()->route('admin.projects.index');
   }
 }

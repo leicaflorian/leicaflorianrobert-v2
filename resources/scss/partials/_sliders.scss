@@ -1,6 +1,9 @@
 @use "bootstrap/scss/vendor/rfs";
 
 .experiences-slider {
+  display: flex;
+  align-items: end;
+  justify-content: center;
   
   .timeline-container {
     --line-width:       4px;
@@ -12,6 +15,7 @@
     align-items:        end;
     overflow:           auto;
     padding-bottom:     2rem;
+   
     //height:             var(--container-height);
     
     .timeline-entry {
@@ -42,6 +46,7 @@
       display:     inline-block;
       position:    relative;
       flex-shrink: 0;
+      overflow: hidden;
       
       .timeline-year__dot {
         width:            var(--year-dot-size);
