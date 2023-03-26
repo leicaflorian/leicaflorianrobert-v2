@@ -6,12 +6,20 @@
       margin-left: 1.5rem;
     }
 
-    li{
+    li {
       margin-bottom: .5rem;
     }
 
-    p{
+    p {
       margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: calc(1.325rem + .5vw);
+    }
+
+    .cky-audit-table-element {
+      margin-left: 2rem;
     }
   </style>
 
@@ -19,8 +27,8 @@
     <div class="container">
       <p class="text-right">
         <strong>
-        Effective Date: 25-Mar-2023 <br>
-        Last Updated: 25-Mar-2023
+          Effective Date: 25-Mar-2023 <br>
+          Last Updated: 25-Mar-2023
         </strong>
       </p>
 
