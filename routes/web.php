@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name("home");
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name("about");
 Route::get('/projects', [App\Http\Controllers\ProjectController::class, 'index'])->name("projects");
+Route::get('/cookie_policy', fn() => view("cookies"))->name("cookies");
+Route::get('/privacy_policy', fn() => view("privacy"))->name("privacy");
 
 Route::middleware('auth')
   ->prefix('admin')
@@ -25,7 +27,7 @@ Route::middleware('auth')
     Route::get('/', function () {
       return view('admin.dashboard');
     })->name('dashboard');
-  
+    
     Route::resource("projects", App\Http\Controllers\Admin\ProjectController::class)->except(['show']);
     Route::resource("experiences", App\Http\Controllers\Admin\ExperienceController::class)->except(['show']);
     Route::resource("contacts", App\Http\Controllers\Admin\ContactController::class)->only(['index', 'show']);

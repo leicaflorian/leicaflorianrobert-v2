@@ -50,7 +50,7 @@
         <div class="rights">
           Tutti i diritti riservati - © {{ (new DateTime())->format("Y") }}
           <br>
-          <a href="#">Privacy Policy</a> - <a href="#">Cookie Policy</a>
+          <a href="{{route("privacy")}}">Privacy Policy</a> - <a href="{{route("cookies")}}">Cookie Policy</a>
         </div>
       </div>
     </div>
