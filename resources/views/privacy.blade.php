@@ -119,7 +119,7 @@
             To learn more about how we use these
             and your choices in relation to these tracking
             technologies, please refer to our
-            <a href="leicaflorianrobert.dev/cookie_policy">Cookie Policy.</a>
+            <a href="/cookie_policy">Cookie Policy.</a>
           </p>
         </li>
 
