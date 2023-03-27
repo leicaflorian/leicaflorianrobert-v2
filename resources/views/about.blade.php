@@ -9,7 +9,7 @@
         <p>
           Sono <strong>Leica Florian Robert</strong>,
           sviluppatore Web Full Stack, UI e UX Designer, sviluppatore Mobile, insegnante tecnologie web, grande
-          appassionato d'informatica e ti tecnologia.
+          appassionato d'informatica e di tecnologia.
         </p>
         <p>
           Adoro questi settori in quanto offrono opportunità uniche e (a volte) semplificano di molto la vita o comunque
@@ -59,7 +59,7 @@
         </p>
 
         <p class="lead mb-5">
-          Se vuoi sapere qualcosa di pi non esitare a contattarmi!
+          Se vuoi sapere qualcosa di più non esitare a contattarmi!
 
           <br>
 

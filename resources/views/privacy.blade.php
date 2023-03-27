@@ -1,5 +1,6 @@
 <x-layout.app :headerCondensed="true" bgImage="img/privacy_policy.jpg">
   <x-slot name="pageTitle">Privacy Policy</x-slot>
+  <x-slot name="headerBgAlign">align-center</x-slot>
 
   <style>
     ol {
