@@ -82,20 +82,24 @@ export class PageHeader {
       ]
     })
     
-    WDSA.register({
-      container: document.querySelector('.projects-list'),
-      elements: [
-        {
-          target: document.querySelectorAll('.projects-list .card-popover'),
-          properties: {
-            'opacity': [0, 1]
-          },
-          startAt: -70,
-          endAt: 100,
-          delay: function (el, i) { return i * 100 }
-        }
-      ]
-    })
+    const projectsList = document.querySelector('.projects-list')
+    
+    if (projectsList) {
+      WDSA.register({
+        container: document.querySelector('.projects-list'),
+        elements: [
+          {
+            target: document.querySelectorAll('.projects-list .card-popover'),
+            properties: {
+              'opacity': [0, 1]
+            },
+            startAt: -70,
+            endAt: 100,
+            delay: function (el, i) { return i * 100 }
+          }
+        ]
+      })
+    }
     
   }
   
