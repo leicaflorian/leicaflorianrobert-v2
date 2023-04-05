@@ -26,8 +26,10 @@
   @vite('resources/js/app.js')
 
   <!-- Start cookieyes banner -->
+  @if(env("APP_ENV") !== "local")
   <script id="cookieyes" type="text/javascript"
           src="https://cdn-cookieyes.com/client_data/179311aba89a53c8c6b20925/script.js"></script>
+  @endif
   <!-- End cookieyes banner -->
 </head>
 <body class="loading">
