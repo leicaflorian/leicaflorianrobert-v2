@@ -31,6 +31,8 @@
           src="https://cdn-cookieyes.com/client_data/179311aba89a53c8c6b20925/script.js"></script>
   @endif
   <!-- End cookieyes banner -->
+
+  <script src="https://www.google.com/recaptcha/api.js?render={{ env('VITE_RECAPTCHA_KEY_PUBLIC') }}" async></script>
 </head>
 <body class="loading">
 

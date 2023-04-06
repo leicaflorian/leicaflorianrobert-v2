@@ -10,15 +10,23 @@ window.addEventListener('pageChanged', function () {
   form.addEventListener('submit', async function (event) {
     event.preventDefault()
     
-    await onSubmit(form)
+    window.grecaptcha.ready(function () {
+      window.grecaptcha.execute(import.meta.env.VITE_RECAPTCHA_KEY_PUBLIC, { action: 'submit' }).then(function (token) {
+        onSubmit(form, token)
+      })
+    })
   })
 })
 
-async function onSubmit (form) {
+async function onSubmit (form, recaptchaToken) {
   const formData = new FormData(form)
   const url = form.getAttribute('action')
   
+  formData.append('g-recaptcha-response', recaptchaToken)
+  
   toggleLoading(form, true)
+  
+  toggleGenericError(form, null)
   
   try {
     const res = await axios.post(url, formData)
@@ -45,6 +53,8 @@ function handleError (error, form) {
     fields.forEach((field) => {
       toggleInputError(field, errors[field.name]?.at(0))
     })
+  } else {
+    toggleGenericError(form, error.response.data.message ?? "Si è verificato un errore. Riprova più tardi.")
   }
 }
 
@@ -71,6 +81,26 @@ function toggleInputError (field, message) {
   }
   
   field.classList.add('is-invalid')
+}
+
+function toggleGenericError (form, message) {
+  const alert = form.querySelector('.alert-submit-error')
+  
+  if (!message) {
+    alert?.remove()
+    
+    return
+  }
+  
+  if (!alert) {
+    const alertEl = document.createElement('div')
+    alertEl.className = 'alert alert-danger alert-submit-error'
+    alertEl.innerHTML = message
+    
+    form.prepend(alertEl)
+  } else {
+    alert.innerHTML = message
+  }
 }
 
 function onSubmitSuccess (res, form) {
