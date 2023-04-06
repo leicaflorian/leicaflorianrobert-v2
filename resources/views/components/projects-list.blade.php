@@ -1,7 +1,7 @@
 <div class="projects-list" data-popover-parent>
   @foreach($projects as $project)
 
-    <div class="card-popover card-popover-small">
+    <div class="card-popover card-popover-small" data-aos="fade-up" data-aos-delay="{{25 * rand(0, count($projects))}}">
       <div class="card-body">
         <div class="card-img">
           <img src="{{ $project->image ? asset('/storage/' . $project->image) : asset('img/placeholder.png')}}" alt="">

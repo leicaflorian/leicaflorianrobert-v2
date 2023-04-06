@@ -1,4 +1,4 @@
-<x-layout.app :headerCondensed="true" bgImage="img/about.jpg">
+<x-layout.app :headerCondensed="true" bgImage="img/about.webp">
   <x-slot name="pageTitle">Su di me</x-slot>
 
   <section class="pt-10">

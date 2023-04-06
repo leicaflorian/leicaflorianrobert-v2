@@ -85,7 +85,7 @@ export class PageHeader {
     const projectsList = document.querySelector('.projects-list')
     
     if (projectsList) {
-      WDSA.register({
+      /*WDSA.register({
         container: document.querySelector('.projects-list'),
         elements: [
           {
@@ -98,7 +98,7 @@ export class PageHeader {
             delay: function (el, i) { return i * 100 }
           }
         ]
-      })
+      })*/
     }
     
   }

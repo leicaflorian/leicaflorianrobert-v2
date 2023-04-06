@@ -44,7 +44,7 @@
           <div class="card-popover card-popover-small">
             <div class="card-body ">
               <div class="card-img">
-                <img src="{{asset('/img/jumbo.png')}}" alt="">
+                <img src="{{asset('/img/web_developer.webp')}}" alt="">
 
                 <div class="card-offcanvas">
                   <div class="mb-1">
@@ -65,7 +65,7 @@
           <div class="card-popover card-popover-small">
             <div class="card-body">
               <div class="card-img">
-                <img src="{{asset('/img/jumbo.png')}}" alt="">
+                <img src="{{asset('/img/mobile_developer.webp')}}" alt="">
 
                 <div class="card-offcanvas">
                   <div class="mb-1">
@@ -84,7 +84,7 @@
           <div class="card-popover card-popover-small">
             <div class="card-body">
               <div class="card-img">
-                <img src="{{asset('/img/jumbo.png')}}" alt="">
+                <img src="{{asset('/img/uiux_designer.webp')}}" alt="">
 
                 <div class="card-offcanvas">
                   <div class="mb-1">
