@@ -1,6 +1,6 @@
 <header @class([ "condensed" => $condensed])>
   <div @class(["jumbo"])>
-    <img src="{{asset($bgImage)}}" class="bg-img {{$headerBgAlign ?? ""}}">
+    <img src="{{asset($bgImage)}}" class="bg-img {{$headerBgAlign ?? ""}}" alt="hero image of the page">
 
     <div class="logo-container bordered-logo">
       <x-svg-icon icon="logo"/>
@@ -49,7 +49,7 @@
           <x-svg-icon icon="logo"/>
         </div>
 
-        <ul class="unstyled-list">
+        <div class="unstyled-list">
           <a href="{{ route('home') }}"
              class="navbar-item route-link {{ (strpos(Route::currentRouteName(), 'home') === 0) ? 'active' : '' }}">Home</a>
           <a href="{{ route('about') }}"
@@ -59,7 +59,7 @@
              class="navbar-item route-link {{ (strpos(Route::currentRouteName(), 'projects') === 0) ? 'active' : '' }}"
              data-page-title="Progetti">Progetti</a>
           <a href="#contacts" class="navbar-item route-link">Contatti</a>
-        </ul>
+        </div>
       </div>
     </div>
   </div>

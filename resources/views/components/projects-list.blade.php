@@ -4,7 +4,7 @@
     <div class="card-popover card-popover-small" data-aos="fade-up" data-aos-delay="{{25 * rand(0, count($projects))}}">
       <div class="card-body">
         <div class="card-img">
-          <img src="{{ $project->image ? asset('/storage/' . $project->image) : asset('img/placeholder.png')}}" alt="">
+          <img src="{{ $project->image ? asset('/storage/' . $project->image) : asset('img/placeholder.png')}}" alt="Preview of {{$project->title}} project}}">
 
           <div class="card-offcanvas">
             <p class="mb-1">
