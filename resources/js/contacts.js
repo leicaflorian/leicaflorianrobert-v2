@@ -8,7 +8,7 @@ window.addEventListener('pageChanged', function () {
   }
   
   form.addEventListener('submit', async function (event) {
-    event.preventDefault()
+    event.preventDefault();
     
     window.grecaptcha.ready(function () {
       window.grecaptcha.execute(import.meta.env.VITE_RECAPTCHA_KEY_PUBLIC, { action: 'submit' }).then(function (token) {

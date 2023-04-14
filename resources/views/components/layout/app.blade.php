@@ -32,7 +32,7 @@
   @endif
   <!-- End cookieyes banner -->
 
-  <script src="https://www.google.com/recaptcha/api.js?render={{ env('VITE_RECAPTCHA_KEY_PUBLIC') }}" async></script>
+  <script src="https://www.google.com/recaptcha/api.js?render={{ env('VITE_RECAPTCHA_KEY_PUBLIC') }}" async defer></script>
 </head>
 <body class="loading">
 

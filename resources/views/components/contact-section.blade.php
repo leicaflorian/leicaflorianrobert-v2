@@ -32,10 +32,16 @@
         </div>
       </fieldset>
 
-      <div class="form-group mb-5">
+      <div class="form-group ">
         <textarea name="message" cols="30" rows="5" class="form-control" placeholder="Messaggio" required></textarea>
         <label>Messaggio</label>
       </div>
+
+      <p class="mb-5">
+        Questo site è protetto da reCAPTCHA e si applica la
+        <a href="https://policies.google.com/privacy?hl=it">Privacy</a> ed i
+        <a href="https://policies.google.com/terms?hl=it">Termini</a> di Google.
+      </p>
 
       <div class="flex-center gap-1">
         <button class="btn btn-light" type="reset">Annulla</button>

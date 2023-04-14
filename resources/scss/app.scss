@@ -18,3 +18,6 @@
 @use "partials/footer";
 @use "partials/projectsList";
 
+.grecaptcha-badge{
+  visibility: hidden;
+}
