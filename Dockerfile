@@ -5,6 +5,8 @@ FROM node:20-alpine AS assets
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
+# Vite inlines the public reCAPTCHA key into the bundle
+ARG VITE_RECAPTCHA_KEY_PUBLIC
 COPY . .
 RUN npm run build
 

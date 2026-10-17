@@ -6,6 +6,8 @@ x-laravel: &laravel
   build:
     context: .
     dockerfile: Dockerfile
+    args:
+      VITE_RECAPTCHA_KEY_PUBLIC: ${VITE_RECAPTCHA_KEY_PUBLIC}
   restart: unless-stopped
   environment: &laravel-env
     APP_NAME: ${APP_NAME:-Leica Florian Robert}
@@ -35,6 +37,12 @@ x-laravel: &laravel
     MAIL_ENCRYPTION: ${MAIL_ENCRYPTION:-tls}
     MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
     MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Leica Florian Robert}
+    VITE_RECAPTCHA_KEY_PUBLIC: ${VITE_RECAPTCHA_KEY_PUBLIC}
+    RECAPTCHA_KEY_PRIVATE: ${RECAPTCHA_KEY_PRIVATE}
+    # Only read by DatabaseSeeder
+    ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    # The code calls env() outside config/ (reCAPTCHA keys), so the config cache stays off
+    AUTORUN_LARAVEL_CONFIG_CACHE: "false"
     # Autorun (migrations, storage:link, config/route/view cache) only runs in the app container
     AUTORUN_ENABLED: "false"
 
