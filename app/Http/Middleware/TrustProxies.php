@@ -10,9 +10,11 @@ class TrustProxies extends Middleware
     /**
      * The trusted proxies for this application.
      *
+     * The app runs behind Coolify's proxy, which sets X-Forwarded-Proto.
+     *
      * @var array<int, string>|string|null
      */
-    protected $proxies;
+    protected $proxies = '*';
 
     /**
      * The headers that should be used to detect proxies.
