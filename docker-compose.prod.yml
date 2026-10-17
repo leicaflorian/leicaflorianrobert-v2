@@ -1,0 +1,60 @@
+# Coolify deployment (build pack "Docker Compose", file /docker-compose.prod.yml).
+# Both services share the image built from the Dockerfile; the database is the
+# shared MySQL service in Coolify, reached through DB_HOST.
+
+x-laravel: &laravel
+  build:
+    context: .
+    dockerfile: Dockerfile
+  restart: unless-stopped
+  environment: &laravel-env
+    APP_NAME: ${APP_NAME:-Leica Florian Robert}
+    APP_ENV: production
+    APP_DEBUG: "false"
+    APP_KEY: ${APP_KEY}
+    # SERVICE_URL_* carries the scheme, SERVICE_FQDN_* only the host
+    APP_URL: ${SERVICE_URL_APP}
+    LOG_CHANNEL: stderr
+    LOG_LEVEL: ${LOG_LEVEL:-warning}
+    DB_CONNECTION: mysql
+    DB_HOST: ${DB_HOST}
+    DB_PORT: ${DB_PORT:-3306}
+    DB_DATABASE: ${DB_DATABASE:-leicaflorianrobert}
+    DB_USERNAME: ${DB_USERNAME:-leicaflorianrobert}
+    DB_PASSWORD: ${DB_PASSWORD}
+    QUEUE_CONNECTION: database
+    CACHE_DRIVER: file
+    SESSION_DRIVER: file
+    FILESYSTEM_DISK: ${FILESYSTEM_DISK:-local}
+    MAIL_MAILER: smtp
+    MAIL_HOST: ${MAIL_HOST:-live.smtp.mailtrap.io}
+    # 587 is blocked on the droplet, Mailtrap also listens on 2525
+    MAIL_PORT: ${MAIL_PORT:-2525}
+    MAIL_USERNAME: ${MAIL_USERNAME}
+    MAIL_PASSWORD: ${MAIL_PASSWORD}
+    MAIL_ENCRYPTION: ${MAIL_ENCRYPTION:-tls}
+    MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
+    MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Leica Florian Robert}
+    # Autorun (migrations, storage:link, config/route/view cache) only runs in the app container
+    AUTORUN_ENABLED: "false"
+
+services:
+  app:
+    <<: *laravel
+    environment:
+      <<: *laravel-env
+      SERVICE_FQDN_APP_8080: ""
+      AUTORUN_ENABLED: "true"
+    volumes:
+      - storage-app:/var/www/html/storage/app
+
+  worker:
+    <<: *laravel
+    command: ["php", "/var/www/html/artisan", "queue:work", "database", "--tries=3"]
+    stop_signal: SIGTERM
+    healthcheck:
+      test: ["CMD", "healthcheck-queue"]
+      start_period: 10s
+
+volumes:
+  storage-app:
