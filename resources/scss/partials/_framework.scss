@@ -106,6 +106,25 @@
   .toolbar-static-text {
     padding: .5rem 1rem;
   }
+  
+  // the logout form: its button looks like the other toolbar links
+  .toolbar-form {
+    display: flex;
+    margin:  0;
+  }
+  
+  button.toolbar-link {
+    background: none;
+    border:     0;
+    color:      currentColor;
+    font:       inherit;
+    cursor:     pointer;
+    transition: background-color .3s ease, color .2s ease;
+    
+    &:hover {
+      color: var(--color-tertiary);
+    }
+  }
 }
 
 

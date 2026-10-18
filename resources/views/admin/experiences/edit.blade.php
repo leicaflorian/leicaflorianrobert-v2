@@ -18,6 +18,7 @@
         </div>
 
         <div class="spacer"></div>
+        <x-admin.logout-button></x-admin.logout-button>
       </div>
 
       <x-forms.experience-upsert :experience="$experience" :update="true"></x-forms.experience-upsert>

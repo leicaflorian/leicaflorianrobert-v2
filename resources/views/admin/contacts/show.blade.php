@@ -1,6 +1,6 @@
 <x-layout.app :headerCondensed="true">
   <x-slot name="pageTitle">
-    Esperienze
+    Messaggio
   </x-slot>
 
   <section class="pt-10 section-fluid">
@@ -15,6 +15,7 @@
         </a>
 
         <div class="spacer"></div>
+        <x-admin.logout-button></x-admin.logout-button>
       </div>
 
 

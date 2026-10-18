@@ -4,6 +4,13 @@
   </x-slot>
 
   <section class="section-small">
+    <div class="container">
+      <div class="toolbar mb-2">
+        <div class="spacer"></div>
+        <x-admin.logout-button></x-admin.logout-button>
+      </div>
+    </div>
+
     <div class="container text-center">
       <h3>Ciao {{ Auth::user()->name }},</h3>
       <p class="lead mb-3">Benvenuto nella tua dashboard. Scegli la tua strada!</p>

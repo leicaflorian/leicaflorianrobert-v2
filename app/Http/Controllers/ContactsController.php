@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Mail;
 class ContactsController extends Controller {
   public function store(Request $request) {
     $data = $request->validate([
-      'name'                 => 'required:max:255',
+      'name'                 => 'required|max:255',
       'email'                => 'required|email',
       'message'              => 'required',
       "g-recaptcha-response" => "required"

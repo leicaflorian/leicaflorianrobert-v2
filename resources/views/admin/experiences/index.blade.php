@@ -16,6 +16,7 @@
         <div class="spacer"></div>
         <a class="toolbar-link" href="{{ route('admin.experiences.create') }}">Aggiungi</a>
         <div class="spacer"></div>
+        <x-admin.logout-button></x-admin.logout-button>
       </div>
 
       <div class="table-responsive">

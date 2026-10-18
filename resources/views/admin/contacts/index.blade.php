@@ -1,6 +1,6 @@
 <x-layout.app :headerCondensed="true">
   <x-slot name="pageTitle">
-    Esperienze
+    Contatti
   </x-slot>
 
   <section class="pt-10 section-fluid">
@@ -15,6 +15,7 @@
         </a>
 
         <div class="spacer"></div>
+        <x-admin.logout-button></x-admin.logout-button>
       </div>
 
       <div class="table-responsive">
@@ -37,7 +38,6 @@
               <td>{{ $contact->email }}</td>
               <td>{{ $contact->message }}</td>
               <td>{{ $contact->created_at }}</td>
-              <td>{{ $contact->updated_at }}</td>
               {{-- Table actions --}}
               <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
