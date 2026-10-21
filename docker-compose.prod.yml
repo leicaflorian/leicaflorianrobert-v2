@@ -52,6 +52,16 @@ services:
     labels:
       # The image exposes 8080, 8443 and 9000: pin the HTTP port so Traefik never guesses
       - traefik.http.services.lfr-v2-app.loadbalancer.server.port=8080
+      # An archived site: keep it out of search engines. A router of its own, above the ones
+      # Coolify writes at every deploy, adds the X-Robots-Tag header on all the app's domains.
+      - traefik.http.middlewares.noindex-v2.headers.customresponseheaders.X-Robots-Tag=noindex, nofollow
+      - traefik.http.routers.noindex-v2.rule=Host(`v2.leicaflorianrobert.dev`) || Host(`lfr.164.90.206.43.sslip.io`)
+      - traefik.http.routers.noindex-v2.entryPoints=https
+      - traefik.http.routers.noindex-v2.tls=true
+      - traefik.http.routers.noindex-v2.tls.certresolver=letsencrypt
+      - traefik.http.routers.noindex-v2.priority=1000
+      - traefik.http.routers.noindex-v2.middlewares=gzip,noindex-v2
+      - traefik.http.routers.noindex-v2.service=lfr-v2-app
     environment:
       <<: *laravel-env
       SERVICE_FQDN_APP_8080: ""
