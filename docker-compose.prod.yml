@@ -28,13 +28,9 @@ x-laravel: &laravel
     CACHE_DRIVER: file
     SESSION_DRIVER: file
     FILESYSTEM_DISK: ${FILESYSTEM_DISK:-local}
-    MAIL_MAILER: smtp
-    MAIL_HOST: ${MAIL_HOST:-live.smtp.mailtrap.io}
-    # 587 is blocked on the droplet, Mailtrap also listens on 2525
-    MAIL_PORT: ${MAIL_PORT:-2525}
-    MAIL_USERNAME: ${MAIL_USERNAME}
-    MAIL_PASSWORD: ${MAIL_PASSWORD}
-    MAIL_ENCRYPTION: ${MAIL_ENCRYPTION:-tls}
+    # The archived site sends no email: contact messages stay in the admin and the log
+    # (the droplet blocks the SMTP ports, and Mailtrap is no longer used)
+    MAIL_MAILER: ${MAIL_MAILER:-log}
     MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
     MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Leica Florian Robert}
     VITE_RECAPTCHA_KEY_PUBLIC: ${VITE_RECAPTCHA_KEY_PUBLIC}
